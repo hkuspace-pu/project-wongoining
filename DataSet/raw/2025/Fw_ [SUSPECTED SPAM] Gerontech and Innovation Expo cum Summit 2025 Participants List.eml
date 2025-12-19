@@ -1,0 +1,470 @@
+Delivered-To: fishcollector2025@gmail.com
+Received: by 2002:a05:6a10:f952:b0:685:e98e:5628 with SMTP id el18csp3937127pxb;
+        Tue, 11 Nov 2025 18:58:23 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGUHIulwQ/7x9Q59ZSBRs1TZdVoNpCQ/9kfWiGYCmKoofS3khiAbNiYZvDIhKGCC+ilsbvI
+X-Received: by 2002:a05:622a:60b:b0:4ed:6cac:d1c7 with SMTP id d75a77b69052e-4eddbcc2976mr18670571cf.20.1762916303440;
+        Tue, 11 Nov 2025 18:58:23 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1762916303; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=k4wu/ZmFmzDjG97x0nunCPEyR3oN/yguuo+X0wcv++6fpKJ1ogmwtE7aPLx28AJ6T0
+         F63icvpXfDnNHvqZkaEfeW5tuTTDkE2GZ183KcjfENhkPHGtU1WluvplFkIt46TCtebp
+         Onl/ToA4D+nMVcpIUEaLfT73KxOJojfLoUWNIKzOWqMeBXZHYIwtkseYqJdcGuAgzkxb
+         9wErpnAfP7uBFFQ741JUYIEZF27RopO+sFg3kirTZo74S6awwqrRpTTsFTmmPAlD8bxE
+         saCef9Rv1HV57D80xiDF8bakIHm7JoMK5o8ruRdN49wwbbtLg5GvJTBJUiP6GjbJ3pPP
+         5icQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:msip_labels:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:to:from:dkim-signature;
+        bh=G88+FVgfNmsp6JW2O56FSSnEedJslGN6zf1MqBKn4tY=;
+        fh=7Q792ha4Gk+prkHBUvADDNAXvzBNURJ7l+YYW4JISBc=;
+        b=heXj5855VI4RrDK/D+qcVOS56UhTKuRgENP5pRiM2l+Tb5FyiRG6drTcYcsOIgIzYB
+         4i9yanwX8YOGZduji0Moy4SSk7pbmC940F5iIRJeQPsAgfCKt7MWEQPb649a18PPihcj
+         vF6e5FBdrH4or7vbosq/ZcnUr4LeROt3D3AM9BEiMTJ2pWHT1yS4alfnjBEE4neQOJKL
+         mY3Mymbzf4OHKVQMFkYB+STIb5urrOhfQVrMmglCil/GRQRdaIGrc4finMy6OqOH1f0N
+         VlIWHLcVqFrKElTMxM0pGdar+1HP0UFmiqZ1oIibpscRuyGd6v2EZR8qnIFylSkaCfbr
+         +HPQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@polyu.edu.hk header.s=selector1 header.b=xoYKbuYY;
+       arc=pass (i=1 spf=pass spfdomain=polyu.edu.hk dkim=pass dkdomain=polyu.edu.hk dmarc=pass fromdomain=polyu.edu.hk);
+       spf=pass (google.com: domain of info.risa@polyu.edu.hk designates 2a01:111:f403:c407::3 as permitted sender) smtp.mailfrom=info.risa@polyu.edu.hk
+Return-Path: <info.risa@polyu.edu.hk>
+Received: from OS0P286CU011.outbound.protection.outlook.com (mail-japanwestazlp170100003.outbound.protection.outlook.com. [2a01:111:f403:c407::3])
+        by mx.google.com with ESMTPS id d75a77b69052e-4eda57e5742si38818651cf.854.2025.11.11.18.58.22
+        for <fishcollector2025@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Nov 2025 18:58:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of info.risa@polyu.edu.hk designates 2a01:111:f403:c407::3 as permitted sender) client-ip=2a01:111:f403:c407::3;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@polyu.edu.hk header.s=selector1 header.b=xoYKbuYY;
+       arc=pass (i=1 spf=pass spfdomain=polyu.edu.hk dkim=pass dkdomain=polyu.edu.hk dmarc=pass fromdomain=polyu.edu.hk);
+       spf=pass (google.com: domain of info.risa@polyu.edu.hk designates 2a01:111:f403:c407::3 as permitted sender) smtp.mailfrom=info.risa@polyu.edu.hk
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Y/YCn+OnymUEKQq6posDAUxvimTtnrbJjwNAShrF9U7V59h+oZgzv3/4w2TSNkszcEUmDtEgKgYTAiqCswlSu8eUBsFn8jruyjrFmODasV8W/o2l4+Gs5EwI8WrNwfUlHxu7SuJWIw6MbTYG3L9hDHGpBIgtSo8FWOnoim+caS5NyI7dHfN2QDqbPxHU7fSrUpnCcLBCCQzkpixgzQQryIbpm+Zn697qZZ7cNDxpgyyUVgwZo27Iw/q82V+RVRdTwYCg0vrDtW2OkNB5OQsSQk5xD4OAIgy0nZmHy9bO6ahzxmYQyqDEWRjZq3o1tirW5xhUc5lvQGaXyRfx/tzlgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=G88+FVgfNmsp6JW2O56FSSnEedJslGN6zf1MqBKn4tY=;
+ b=hrIjPMaLxuGpJx9rLPYdlubEi8yFbo2Ufj17caFu6YAPhMOUlL2rKf3/mcRujpS52So2Hs/B87BORqdU/z5NHPscJAYMFCtZtZZCoBREHnPPGK/36m1CzyV+NBA3UlRWgaPr29Xy4xQZV2ojgs1f4R3TMJN4BvkLZJXyU4HllYYKmD+NlHFB9QaF7IA76ESqjhXvWkcmMAPva2CaVYR/sw9pSOUhkNLq/uBDC9lPpEg2hmzzKJ5fsqRlbnaM183+L9idJtZsil5Om6S2QPd9M+FL9dYwZkw1kfA20+xnz6xjWw3JfdCv1ZUI50+lEIq+1Dzxf3RLr419KpAJRvs33g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=polyu.edu.hk; dmarc=pass action=none header.from=polyu.edu.hk;
+ dkim=pass header.d=polyu.edu.hk; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=polyu.edu.hk;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=G88+FVgfNmsp6JW2O56FSSnEedJslGN6zf1MqBKn4tY=;
+ b=xoYKbuYYRvOLhsalkp8kFHp5HAUs8qoEPWRC1gVoPzVUGszn3E72vp8iUcWsNrYKaqsUfXFzp3wZg5Ptqo878Jq8/QeZj+PvsqwNMvDEz2a9cSoMYlpOdm6RVrPD9sGcgW0PPFbBHF0W4Uezq3BpC0ES1QViLotxkgETnOdCD8U=
+Received: from TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:264::11)
+ by TYCP286MB1636.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:185::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Wed, 12 Nov
+ 2025 02:58:20 +0000
+Received: from TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::1027:5173:acbe:8415]) by TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::1027:5173:acbe:8415%7]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
+ 02:58:20 +0000
+From: "Research Institute for Smart Ageing [PAIR]" <info.risa@polyu.edu.hk>
+To: "fishcollector2025@gmail.com" <fishcollector2025@gmail.com>
+Subject: Fw: [SUSPECTED SPAM] Gerontech and Innovation Expo cum Summit 2025
+ Participants List
+Thread-Topic: [SUSPECTED SPAM] Gerontech and Innovation Expo cum Summit 2025
+ Participants List
+Thread-Index: AQHcSJgn9TkxCVBR6kS0OgeoYIJLnbTubxJD
+Date: Wed, 12 Nov 2025 02:58:20 +0000
+Message-ID:
+ <TY4P286MB5558DEECFBFF26A6F020D888DBCCA@TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM>
+References:
+ <CAAhWd6GYNsTAdFivEOH8Jv7FZuva+Vkc6kWW3_P69UMWoeXytw@mail.gmail.com>
+In-Reply-To:
+ <CAAhWd6GYNsTAdFivEOH8Jv7FZuva+Vkc6kWW3_P69UMWoeXytw@mail.gmail.com>
+Accept-Language: zh-HK, en-US
+Content-Language: zh-HK
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=polyu.edu.hk;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY4P286MB5558:EE_|TYCP286MB1636:EE_
+x-ms-office365-filtering-correlation-id: 5e483731-3d4d-4c5a-41aa-08de21975663
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|376014|366016|1800799024|69100299015|4022899009|38070700021|8096899003;
+x-microsoft-antispam-message-info:
+ =?big5?B?Ky9uRlAxMktYQlEwZmROZktQYWFjZEs1eUE1cmJDQU9qZHpVS1I1ZXYvak0zclE1?=
+ =?big5?B?ODRCa0x2dVZlWlp4elRJVDVHNTZMSWNPbW5GYTMveWNtMFBVdzdvd3hScVF5OEVV?=
+ =?big5?B?VVFyYTd4QkgrRjN4YmVzeTlXMVF6MlJCT3BoS3J0dGtLVkMzdnNGUERWdGhWODh0?=
+ =?big5?B?eHNkem1YQngwTnRhY1FIZ3UvRmZqN294cHdWeEx6aU5WRW40VnVrdkNkRFpuVThh?=
+ =?big5?B?NnJXUkhMYzJqUlo3M1pEMVVKK0FLQ1VMRjFsRzE1a1Nram93YVlRTG84SjVLRTN3?=
+ =?big5?B?MjVVVVNkVUNOb0RUUk0xV0hHVmRqRFMxQlVKc05YTFdiVmlveUxRQTQ4ZzZ4SXR5?=
+ =?big5?B?eDJ1NTdiV2dhTkU0dlFHRkcyemxGbUFKamNKT1RNaEhGanloT0Z3ckxTRkZSWi9N?=
+ =?big5?B?bG5aUmt6eDVuK05MamlSanI2TG8waDJwTnpHTkNvNFJuc2kvWjdESVdFcHByRDBL?=
+ =?big5?B?T0N5eGk0cUZkNGZBenpWa1oybC9rdWthL2ZhREhreUxubFNsdDZFN0M0cnVyQWVD?=
+ =?big5?B?d042b2RRTTZUSzRDOGVPTU5IWHpCOUJycjNBcmkySDBpQW14MXpBbDBtbnk5VzdJ?=
+ =?big5?B?cjZYVXNPOE1vRHVoSUlRWGZaSWRvdC9nSGdBaENNQ3FCWTNzVGpvSGRnSlg1NkVk?=
+ =?big5?B?VHE5Qnc2RTZEMUF6UDNHSmdJZUlnMlFmdk5xcFMwZXM1RGtnMDdUVXJmbG9aZE1t?=
+ =?big5?B?NXgyN1BHUldNZFRIQXhaQWVTZ3VNaUJCcGoza2tCY0tobHBLZ2VrNHlTdlp2eVJa?=
+ =?big5?B?RHZzZ1hhbXo5SGVPWXNNQytCNm9QeU92ekpUMjJvVzBxY1BoWlNXSXZTa0VoaXVi?=
+ =?big5?B?akZpdDM0amNTMVpRYWxNSDErVU9BMlFlTnBtUGl1NmJMaTNadVJncXdDTGdUSTJV?=
+ =?big5?B?eHJMZy9HTloxNEp5dTkwdVlZVEpndjR4SUFDSElqSzlVN0hwem9KTFYrdG9Jc3kv?=
+ =?big5?B?OE1rRG5Zbm82YXpySXlYaFI2aW45TzZiVnc4UEFwejdRdXVOV1RrYUI0MUUzdmxJ?=
+ =?big5?B?UXVFNWRheXpqejE2VWltOEdmcHN6Zm1WSlcvU2FQVmpkeEE5U3l2ejdKdlVUL3Er?=
+ =?big5?B?Y09ldXIyTm1oWGIrTmZWaUYvUHl1Z1p4VWdWbGh3TnNHaTdMc2wyblNDU3ZhRXE3?=
+ =?big5?B?dUtJYklKUFM1N1E4M0V3dlR3VGs0QkRDOGNZSVA5SU5sbDk4cWxnRWNnNDJHM0pi?=
+ =?big5?B?VmZCWk9aSGNUeHExM3dtNDVFcCt1VTdUV0FNQkhHMGtGTTZVcWhDZkc5T2Y0WXBU?=
+ =?big5?B?YnVnSTJMdUtTMUZVZWcvYjdGTGJRUTlhWGhjQWpzNFIxR0YxL2lHMFRUdWs0ZG5X?=
+ =?big5?B?SUFndmdGakU3QkRQd0QrM2lrMFR3MldWSlg1NmhCZk5rZFk3NHV4TzZJWi9lY0F4?=
+ =?big5?B?VWNyNHdYaWZJYW5mWFZiMXFBUWF3eVV2SWFDSkExYXpGVnZ5YUp1NjhKNFFZZ29D?=
+ =?big5?B?UU4rRnlmY2VrVnd4bkthRGNMZFozWDlVdStybWdTYldVRXFSTFFDVDBYYUdjSkE3?=
+ =?big5?B?d0s4Z0p2SHBGTzdhVWxLL0cxbEFjMXVHaGYwbDdhSlJrYUZrWVdsT0NvZU51UkJs?=
+ =?big5?B?THg5Uy9FK3JCZmJwUkVKaUJpUlNVdGs4MC9NQi9xbWdaRkM4Rld2M3daZ2NXQXNX?=
+ =?big5?B?ZzA5S3VKcWFuK2pBQ2dUYzA1K1d4VWs5NGNSNGdrMktYNk5ERXlHWWpqN1ZQSThX?=
+ =?big5?B?T1lUUVdKUFFkS2lsR3ZCZS80dTJPTHF0NUk4TmlwMHU3WFU2bEpBUk1aM1owWlkw?=
+ =?big5?B?K0tzYnlCRTJJVlA2c2x6YVcyNTZXYWx0UEllWUlkSXRqMjA0WEFEbjZhbnY2ZHRV?=
+ =?big5?B?QzhJeVRQY25lcnNaNUdSSkc1bkdSWnBGSVRGQk1Uc0ZVNUxrLzNMK1ZaVWlYRFBh?=
+ =?big5?Q?3nFmwLjgRgY8wjvDme2vg8IQ8+ti4mKCo4pUwoxmfXzLJhaO?=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(69100299015)(4022899009)(38070700021)(8096899003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?big5?B?RmFXaHhaS0xmRkxoOXdhaDExRHFQdGxvTVVDQ2YveXFEMkgwVEtiSTRXTDlNakg1?=
+ =?big5?B?SGVYMkNBZlhnKzZHY3lKUGQzY2N1QkIyTnpXcEhVaDJvaXpNWUg2WnlwL2FXOUJw?=
+ =?big5?B?aEZLNVphVXV0ay8vVnhyUFJ5S3crck5na3l3TEx5RTk5TjBUWUdGVXgyYVZqVHNt?=
+ =?big5?B?RHo3M21OYzNRVzRlTXExbWdrVU5adzRkeis4MTl4RHVScEoxeUp6MXYrS2RUeEg0?=
+ =?big5?B?VHcxdE1jejJDdkRDZFcvUUV1RVYrcHNtaGg1akg0NEQ2bTdpM0xTWWxnd3hnT0Ni?=
+ =?big5?B?Q1Zvd01yT0ZLbmVSK1dUUnFYZnc1V2JDejhkcTF4VjR2bkRrb1YwTElkV1FyMGY4?=
+ =?big5?B?N3FVZ3V2SVV0cTU5ZFpHSTlLZ2pOR1V4bkNJWEx4R2VDKysrMlNLYng1Y0hhSUpp?=
+ =?big5?B?ZXZkMk9XT3hwUEdEM2pwaUZwRWFBakluOXlBZUxLaW5NZFRVSDBHZzhQaklDWGMw?=
+ =?big5?B?Y2NuNzJ0UEszaUV2WFl6ZXZFdFNYQTNUeFg3WStxMkFwbmtOMWVEM0UvOWFQNnk4?=
+ =?big5?B?V3Z1b29LNnFJWXBIcjFWQ25QRU5kR0d5eldnT1NtbkFoMVZTSmFhajBxaURsbWox?=
+ =?big5?B?ditQRzJGbTR3dzZmZTdOWHRpbXhGdFhXaDJ4OGM2MU1RZGpaRXBvNlN5aStyZ0U2?=
+ =?big5?B?Y21pcG1wYkxKdzJKN1dna3B4eEJGRUpEMTY4NnVTaitZczRFK1doakFlSkoyMzVM?=
+ =?big5?B?WG1sWVZHMlFFM1RnS1RTY1BlaXkwYjJmU0R4V0MwSnUycDJWMjlwN3AwWlZsWEoy?=
+ =?big5?B?ODB6bi85RE9yemlEcGJXSkJ3MUdBZE1Na3lTdnNycXNGb01QRXBRakxTSDJmSHNS?=
+ =?big5?B?Zk1BaFJvVWkxV0llRzc3NW0xUnJBdWxXZFBWUDc0bDVVZUgzZ2xoWlVJYm5NU2tM?=
+ =?big5?B?KzB5NTU3SGtiTGRrcElaNW1hTEtXQ1Y1dWV0WmxiYk80SFpRcHNtbjMrdTJpeUxK?=
+ =?big5?B?OXZtUERVeWRJUUpleFVDQjlqOE82QVZGcFl4MXdMRWRHZ1lrUVhlNXExM0RNMXZP?=
+ =?big5?B?Y21wbEptdU5GWXhJOHRISFhOaXpacjlvSDhFclMxeXB6U08zMzlZMGVrdHNjK3JW?=
+ =?big5?B?dUFTMFV1RE8yN2QrMHhxU3dtQ0pCTGVhbi95d2tKMW1KQ2tIRkhrQnBwRkNyRlVE?=
+ =?big5?B?bVFXQkxNQjZxYTMwR0plL0thRndEOE1xbWFVeDNsOTJLR05FVjVtbVFOSEhjYngx?=
+ =?big5?B?aW11UWo5bGZuY0tUTW5oaUxQQ3FPOUpNY3Vsc2xCTDRuaXplV0JZTDN0MHlqQXo4?=
+ =?big5?B?SmszOVY5N0M5TitaVjkraGV6VFdZeGM3K2NVT21yVTNaTEZGbXNnUklkVEc5Q0hV?=
+ =?big5?B?bHdqd0ZDZGZFRDRldExNTDV1U2tFeEhGUVRGSEp0VWFXZytXL1FGcXF4WU5PWXF4?=
+ =?big5?B?RERxd3orakI1aXBJNHBBK1lJMzJMNTZ3NFNiV3pFbFJXaTRPbmI5RUJzYTdQcXJ6?=
+ =?big5?B?UkNXY0RRY05CNzM4Vm9BZjh0eHR4dlMvVGkxd2xHTnZ2djlkR1ZhK2txRXpPMUJx?=
+ =?big5?B?SENpR3VTN2pLYnBZOEh1SCtBMXVFMGhJNDROQ2R0RnlkUHV1bFVCbzdlaDFncE1P?=
+ =?big5?B?STdqRVdWcWVvVE5DclQ2b2R6RjZjaStGeDVsaXdGN0ZmaVFIWWVvOVhRazFXNUtT?=
+ =?big5?B?STR6dWpXUDZEaXhUNEJ5S1ZrRUtNdTZQdXJOUGlYRFE5ZU1kNEk4MUVHTVBLTEl2?=
+ =?big5?B?Y2g0enJlK3BLVUs4TG96aEQ2MDBCcCtzbDVtRWZURHJPT21tZ0RyczVUQzRYMmlK?=
+ =?big5?B?RER3M3hUdVFMaHNteWhYQnhlcHF3NGVsQm5HL0plb1JZMC9IUU12Y3hrYWtvRVFS?=
+ =?big5?B?RXM4RjZNWkVUb3F3NXlpMFYyMzl2c3lGa0FpLzhJbktZRzVxOWE2dFNialRaTVA4?=
+ =?big5?B?RG9SdDlyNk1UU2d6YUhicTlhanl1ZmZEaGg2dHN3YmZDenNUeW90RTJoQlNGOFpR?=
+ =?big5?B?bUNUZ0ZIQkhOUmk1ZEVSVzZ3WVEyWG9TcXpSbEt2ODl6TzY4Y3BOU01iL2NuSnRP?=
+ =?big5?Q?3OEozDrmNPCN02U0?=
+Content-Type: multipart/alternative;
+	boundary="_000_TY4P286MB5558DEECFBFF26A6F020D888DBCCATY4P286MB5558JPNP_"
+MIME-Version: 1.0
+X-OriginatorOrg: polyu.edu.hk
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e483731-3d4d-4c5a-41aa-08de21975663
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2025 02:58:20.6119
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 8f37f760-b187-4981-b82f-e5dc6f5bcf44
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: OZbjiL0Ae56sRmxIkeD7buyaX4oGJPti+4PhnqTRZeEBxxkZm/FwKuDt++bwToTjpX5gBeZTpUm+dcmIA4IGVA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCP286MB1636
+
+--_000_TY4P286MB5558DEECFBFF26A6F020D888DBCCATY4P286MB5558JPNP_
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
+
+DQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXw0KsUil86rMOiBDaHJpc3RpbmUgPGNo
+cmlzdGluZS5kYXRhNjZAZ21haWwuY29tPg0KsUil86TptME6IDIwMjWmfjEwpOsyOaTpIDEzOjQ4
+DQqmrKXzqsw6IFJlc2VhcmNoIEluc3RpdHV0ZSBmb3IgU21hcnQgQWdlaW5nIFtQQUlSXSA8aW5m
+by5yaXNhQHBvbHl1LmVkdS5oaz4NCqVEpq46IFtTVVNQRUNURUQgU1BBTV0gR2Vyb250ZWNoIGFu
+ZCBJbm5vdmF0aW9uIEV4cG8gY3VtIFN1bW1pdCAyMDI1IFBhcnRpY2lwYW50cyBMaXN0DQoNCg0K
+Q0FVVElPTjogRXh0ZXJuYWwgZW1haWwuIERvIG5vdCBjbGljayBsaW5rcyBvciBvcGVuIGF0dGFj
+aG1lbnRzIHVubGVzcyB5b3UgcmVjb2duaXplIHRoZSBzZW5kZXIgYW5kIGtub3cgdGhlIGNvbnRl
+bnQgaXMgc2FmZS4NCg0KDQoNCg0KDQpIaSwNCg0KDQoNCkkgSG9wZSBZb3UncmUgRG9pbmcgV2Vs
+bA0KDQoNCg0KV2UgYXJlIGZvbGxvd2luZyB1cCB0byBjb25maXJtIGlmIHlvdSBhcmUgaW50ZXJl
+c3RlZCBpbiBhY3F1aXJpbmcgdGhlIFZpc2l0b3JzL0F0dGVuZGVlcyBMaXN0Lg0KDQoNCg0KRXZl
+bnQgRGV0YWlsczoNCg0KRXZlbnQgTmFtZTogR2Vyb250ZWNoIGFuZCBJbm5vdmF0aW9uIEV4cG8g
+Y3VtIFN1bW1pdCAyMDI1IChHSUVTKQ0KDQpEYXRlOiAyMCAtIDIzIE5vdiAyMDI1DQoNCkxvY2F0
+aW9uOiBIb25nIEtvbmcgQ29udmVudGlvbiBhbmQgRXhoaWJpdGlvbiBDZW50cmUsIEhvbmcgS29u
+Zw0KDQpUb3RhbCBDb250YWN0czoxNyw1OTQNCg0KDQoNClRoZSBsaXN0IGluY2x1ZGVzIENvbnRh
+Y3QgTmFtZSwgRW1haWwgQWRkcmVzcywgQ29tcGFueSBOYW1lLCBVUkwvV2Vic2l0ZSwgUGhvbmUg
+Tm8sIFRpdGxlL0Rlc2lnbmF0aW9uLg0KDQoNCg0KS2luZGx5IHJlc3BvbmQgdG8gdGhpcyBlbWFp
+bCBhcyBmb2xsb3dzOg0KDQogIlllcywgSaGmbSBpbnRlcmVzdGVkIKFYIHNlbmQgdGhlIERpc2Nv
+dW50ZWQgQ29zdCAmIE1vcmUgZGV0YWlscy4iDQoNCiAiTm90IEludGVyZXN0ZWQgLSBVbnN1YnNj
+cmliZS4iDQoNCkxldCBtZSBrbm93IHlvdXIgdGhvdWdodHMsIHNvIHRoYXQgd2UgY2FuIHNlbmQg
+eW91IHRoZSBEaXNjb3VudGVkIENvc3QgJiBNb3JlIERldGFpbHMuDQoNCg0KDQpXZSBhcmUgbG9v
+a2luZyBmb3J3YXJkIHRvIGhlYXJpbmcgZnJvbSB5b3UhDQoNCg0KDQpCZXN0IHJlZ2FyZHMsDQoN
+CiBDaHJpc3RpbmUNCg0KW2h0dHBzOi8vd3d3LnBvbHl1LmVkdS5oay9lbWFpbGRpc2NsYWltZXIv
+UG9seVVfRW1haWxfU2lnbmF0dXJlLXYyLmpwZ108aHR0cDovL3d3dy5wb2x5dS5lZHUuaGs+DQoN
+Cnd3dy5wb2x5dS5lZHUuaGs8aHR0cDovL3d3dy5wb2x5dS5lZHUuaGs+DQoNCltodHRwczovL3d3
+dy5wb2x5dS5lZHUuaGsvZW1haWxkaXNjbGFpbWVyL0ljb25zLTAyLmpwZ108aHR0cHM6Ly93d3cu
+cG9seXUuZWR1LmhrL2NwYS9vbmxpbmUtY2hhbm5lbHMvI2lwb2x5dWFwcD4gICAgICAgICAgICAg
+ICAgW2h0dHBzOi8vd3d3LnBvbHl1LmVkdS5oay9lbWFpbGRpc2NsYWltZXIvSWNvbnMtMDMuanBn
+XSA8aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL0hvbmdLb25nUG9seVU+ICAgICAgICAgICAgICAg
+IFtodHRwczovL3d3dy5wb2x5dS5lZHUuaGsvZW1haWxkaXNjbGFpbWVyL0ljb25zLTA0LmpwZ10g
+PGh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3VzZXIvSG9uZ0tvbmdQb2x5VT4gICAgICAgICAgICBb
+aHR0cHM6Ly93d3cucG9seXUuZWR1LmhrL2VtYWlsZGlzY2xhaW1lci9JY29ucy0wNS5qcGddIDxo
+dHRwczovL3d3dy5pbnN0YWdyYW0uY29tL2hvbmdrb25ncG9seXUvPiAgICAgICAgICAgICAgW2h0
+dHBzOi8vd3d3LnBvbHl1LmVkdS5oay9lbWFpbGRpc2NsYWltZXIvSWNvbnMtMDYuanBnXSA8aHR0
+cHM6Ly93d3cubGlua2VkaW4uY29tL3NjaG9vbC9ob25nLWtvbmctcG9seXRlY2huaWMtdW5pdmVy
+c2l0eS8+ICAgICAgICAgICAgIFtodHRwczovL3d3dy5wb2x5dS5lZHUuaGsvZW1haWxkaXNjbGFp
+bWVyL0ljb25zLTA3LmpwZ10gPGh0dHBzOi8vdHdpdHRlci5jb20vSG9uZ0tvbmdQb2x5VT4gICAg
+ICAgICAgICAgW2h0dHBzOi8vd3d3LnBvbHl1LmVkdS5oay9lbWFpbGRpc2NsYWltZXIvSWNvbnMt
+MDguanBnXSA8aHR0cHM6Ly93d3cucG9seXUuZWR1LmhrLy0vbWVkaWEvZGVwYXJ0bWVudC9ob21l
+L3NldHRpbmcvcG9seXUtd2VjaGF0X3FyLWNvZGVfMjAxOTA5MDMuanBnP2JjPWZmZmZmZiZoPTE1
+MCZ3PTE1MCZoYXNoPTY3OUVFOTVCQ0IxNzk2RjcxQjVBNDE0OTY0Nzc4NUM5PiAgICAgICAgICAg
+ICAgICBbaHR0cHM6Ly93d3cucG9seXUuZWR1LmhrL2VtYWlsZGlzY2xhaW1lci9JY29ucy0wOS5q
+cGddIDxodHRwczovL3d3dy53ZWliby5jb20vaG9uZ2tvbmdwb2x5dT4NCg0KRGlzY2xhaW1lcjoN
+Cg0KVGhpcyBtZXNzYWdlIChpbmNsdWRpbmcgYW55IGF0dGFjaG1lbnRzKSBjb250YWlucyBjb25m
+aWRlbnRpYWwgaW5mb3JtYXRpb24gaW50ZW5kZWQgZm9yIGEgc3BlY2lmaWMgaW5kaXZpZHVhbCBh
+bmQgcHVycG9zZS4gSWYgeW91IGFyZSBub3QgdGhlIGludGVuZGVkIHJlY2lwaWVudCwgeW91IHNo
+b3VsZCBkZWxldGUgdGhpcyBtZXNzYWdlIGFuZCBub3RpZnkgdGhlIHNlbmRlciBhbmQgVGhlIEhv
+bmcgS29uZyBQb2x5dGVjaG5pYyBVbml2ZXJzaXR5ICh0aGUgVW5pdmVyc2l0eSkgaW1tZWRpYXRl
+bHkuIEFueSBkaXNjbG9zdXJlLCBjb3B5aW5nLCBvciBkaXN0cmlidXRpb24gb2YgdGhpcyBtZXNz
+YWdlLCBvciB0aGUgdGFraW5nIG9mIGFueSBhY3Rpb24gYmFzZWQgb24gaXQsIGlzIHN0cmljdGx5
+IHByb2hpYml0ZWQgYW5kIG1heSBiZSB1bmxhd2Z1bC4NCg0KVGhlIFVuaXZlcnNpdHkgc3BlY2lm
+aWNhbGx5IGRlbmllcyBhbnkgcmVzcG9uc2liaWxpdHkgZm9yIHRoZSBhY2N1cmFjeSBvciBxdWFs
+aXR5IG9mIGluZm9ybWF0aW9uIG9idGFpbmVkIHRocm91Z2ggVW5pdmVyc2l0eSBFLW1haWwgRmFj
+aWxpdGllcy4gQW55IHZpZXdzIGFuZCBvcGluaW9ucyBleHByZXNzZWQgYXJlIG9ubHkgdGhvc2Ug
+b2YgdGhlIGF1dGhvcihzKSBhbmQgZG8gbm90IG5lY2Vzc2FyaWx5IHJlcHJlc2VudCB0aG9zZSBv
+ZiB0aGUgVW5pdmVyc2l0eSBhbmQgdGhlIFVuaXZlcnNpdHkgYWNjZXB0cyBubyBsaWFiaWxpdHkg
+d2hhdHNvZXZlciBmb3IgYW55IGxvc3NlcyBvciBkYW1hZ2VzIGluY3VycmVkIG9yIGNhdXNlZCB0
+byBhbnkgcGFydHkgYXMgYSByZXN1bHQgb2YgdGhlIHVzZSBvZiBzdWNoIGluZm9ybWF0aW9uLg0K
+
+--_000_TY4P286MB5558DEECFBFF26A6F020D888DBCCATY4P286MB5558JPNP_
+Content-Type: text/html; charset="big5"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dbig5">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>=B1H=A5=F3=AA=CC:</b> Christine=
+ &lt;christine.data66@gmail.com&gt;<br>
+<b>=B1H=A5=F3=A4=E9=B4=C1:</b> 2025=A6~10=A4=EB29=A4=E9 13:48<br>
+<b>=A6=AC=A5=F3=AA=CC:</b> Research Institute for Smart Ageing [PAIR] &lt;i=
+nfo.risa@polyu.edu.hk&gt;<br>
+<b>=A5D=A6=AE:</b> [SUSPECTED SPAM] Gerontech and Innovation Expo cum Summi=
+t 2025 Participants List</font>
+<div>&nbsp;</div>
+</div>
+<div>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"left" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"border:1px solid; font-size:12px">
+<td width=3D"100%" style=3D"padding:2pt 2pt 3pt 8pt; word-wrap:break-word; =
+font-weight:bold; color:#000000; border:1px solid">
+<p><span style=3D"color:red">CAUTION</span>: External email. Do not click l=
+inks or open attachments unless you recognize the sender and know the conte=
+nt is safe.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<div>
+<div dir=3D"ltr">
+<div><br clear=3D"all">
+</div>
+<div>
+<div dir=3D"ltr" class=3D"x_gmail_signature" data-smartmail=3D"gmail_signat=
+ure">
+<div dir=3D"ltr">
+<p class=3D"x_MsoNormal"><a name=3D"x_SignatureSanitizer__Hlk189068057"></a=
+><a name=3D"x_SignatureSanitizer__Hlk189062020"><span lang=3D"EN-US">Hi,</s=
+pan></a></p>
+<p class=3D"x_MsoNormal"><a name=3D"x_SignatureSanitizer__Hlk189068110"><sp=
+an lang=3D"EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;
+</span></a></p>
+<p class=3D"x_MsoNormal"><b><span lang=3D"EN-US">I Hope You're Doing Well</=
+span></b></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US">&nbsp;</span></p>
+<p class=3D"x_MsoNormal">We are following up to confirm if you are interest=
+ed in acquiring the&nbsp;<b>Visitors/Attendees List.</b></p>
+<p class=3D"x_MsoNormal"><b><span style=3D"font-size:11.0pt; line-height:11=
+5%; color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span></b></p>
+<p class=3D"x_MsoNormal"><b><u>Event Details:</u></b></p>
+<p class=3D"x_MsoNormal"><b>Event Name</b>:<span style=3D"font-size:11.0pt;=
+ line-height:115%; font-family:&quot;Aptos Narrow&quot;,sans-serif; color:b=
+lack">
+</span><b><span style=3D"font-size:11.0pt; line-height:115%; font-family:&q=
+uot;Aptos Narrow&quot;,sans-serif; color:black">Gerontech and Innovation Ex=
+po cum Summit 2025 (GIES)</span></b><span style=3D"font-size:11.0pt; line-h=
+eight:115%; font-family:&quot;Aptos Narrow&quot;,sans-serif; color:black"><=
+/span></p>
+<p class=3D"x_MsoNormal"><b>Date:</b><span style=3D"font-size:11.0pt; line-=
+height:115%; font-family:&quot;Aptos Narrow&quot;,sans-serif; color:black">
+</span><b><span style=3D"font-size:11.0pt; line-height:115%; font-family:&q=
+uot;Aptos Narrow&quot;,sans-serif; color:black">20 - 23 Nov 2025</span></b>=
+<span style=3D"font-size:11.0pt; line-height:115%; font-family:&quot;Aptos =
+Narrow&quot;,sans-serif; color:black"></span></p>
+<p class=3D"x_MsoNormal"><b>Location:</b><span style=3D"font-size:11.0pt; l=
+ine-height:115%; font-family:&quot;Aptos Narrow&quot;,sans-serif; color:bla=
+ck">
+</span><b><span style=3D"font-size:11.0pt; line-height:115%; font-family:&q=
+uot;Aptos Narrow&quot;,sans-serif; color:black">Hong Kong Convention and Ex=
+hibition Centre,&nbsp;Hong Kong</span></b><span style=3D"font-size:11.0pt; =
+line-height:115%; font-family:&quot;Aptos Narrow&quot;,sans-serif; color:bl=
+ack"></span></p>
+<p class=3D"x_MsoNormal"><b><span style=3D"background:aqua">Total Contacts:=
+17,594</span></b></p>
+<p class=3D"x_MsoNormal"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b></p>
+<p class=3D"x_MsoNormal"><b>The list includes&nbsp;Contact Name, Email Addr=
+ess, Company&nbsp;Name, URL/Website, Phone No, Title/Designation.</b></p>
+<p class=3D"x_MsoNormal"><span style=3D"color:#ee0000">&nbsp;</span></p>
+<p class=3D"x_MsoNormal">Kindly respond to this email as follows:</p>
+<p class=3D"x_MsoNormal"><b><span style=3D"color:black">&nbsp;<span style=
+=3D"background:yellow">&quot;Yes, I=A1=A6m interested =A1X send the Discoun=
+ted Cost &amp; More details.&quot;</span></span></b><span style=3D"color:bl=
+ack; background:yellow"></span></p>
+<p class=3D"x_MsoNormal"><b><span style=3D"color:black">&nbsp;&quot;Not Int=
+erested - Unsubscribe.&quot;</span></b><span style=3D"color:black"></span><=
+/p>
+<p class=3D"x_MsoNormal">Let me know your thoughts,&nbsp;<b><span style=3D"=
+background:aqua">so that we can send you the Discounted Cost &amp; More Det=
+ails.</span></b></p>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal">We are looking forward to hearing from you!</p>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal">Best regards,</p>
+<p class=3D"x_MsoNormal">&nbsp;<b>Christine</b></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<title>Email Signature</title>
+<br>
+<a href=3D"http://www.polyu.edu.hk" target=3D"_blank"><img alt=3D"" src=3D"=
+https://www.polyu.edu.hk/emaildisclaimer/PolyU_Email_Signature-v2.jpg"></a>=
+<br>
+<br>
+<strong><a href=3D"http://www.polyu.edu.hk" rel=3D"noopener" style=3D"text-=
+decoration:none;" target=3D"_blank"><span style=3D"color:#000e58; font-fami=
+ly: Arial, sans-serif;"><span style=3D"font-size: 10pt; font-family: Arial,=
+ sans-serif; color:#9e2335;">www.polyu.edu.hk</span></span></a></strong><br=
+>
+&nbsp;
+<table border=3D"0" cellpadding=3D"1" cellspacing=3D"1">
+<tbody>
+<tr>
+<td style=3D"width: 35px;"><a href=3D"https://www.polyu.edu.hk/cpa/online-c=
+hannels/#ipolyuapp" target=3D"_blank"><img alt=3D"" src=3D"https://www.poly=
+u.edu.hk/emaildisclaimer/Icons-02.jpg" style=3D"width: 35px; height: 35px;"=
+></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px; vertical-align: top;"><a href=3D"https://www.face=
+book.com/HongKongPolyU" target=3D"_blank"><img alt=3D"" src=3D"https://www.=
+polyu.edu.hk/emaildisclaimer/Icons-03.jpg" style=3D"width: 35px; height: 35=
+px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://www.youtube.com/user/HongKong=
+PolyU" target=3D"_blank"><img alt=3D"" src=3D"https://www.polyu.edu.hk/emai=
+ldisclaimer/Icons-04.jpg" style=3D"width: 35px; height: 35px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://www.instagram.com/hongkongpol=
+yu/" target=3D"_blank"><img alt=3D"" src=3D"https://www.polyu.edu.hk/emaild=
+isclaimer/Icons-05.jpg" style=3D"width: 35px; height: 35px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://www.linkedin.com/school/hong-=
+kong-polytechnic-university/" target=3D"_blank"><img alt=3D"" src=3D"https:=
+//www.polyu.edu.hk/emaildisclaimer/Icons-06.jpg" style=3D"width: 35px; heig=
+ht: 35px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://twitter.com/HongKongPolyU" ta=
+rget=3D"_blank"><img alt=3D"" src=3D"https://www.polyu.edu.hk/emaildisclaim=
+er/Icons-07.jpg" style=3D"width: 35px; height: 35px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://www.polyu.edu.hk/-/media/depa=
+rtment/home/setting/polyu-wechat_qr-code_20190903.jpg?bc=3Dffffff&amp;h=3D1=
+50&amp;w=3D150&amp;hash=3D679EE95BCB1796F71B5A4149647785C9" target=3D"_blan=
+k"><img alt=3D"" src=3D"https://www.polyu.edu.hk/emaildisclaimer/Icons-08.j=
+pg" style=3D"width: 35px; height: 35px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://www.weibo.com/hongkongpolyu" =
+target=3D"_blank"><img alt=3D"" src=3D"https://www.polyu.edu.hk/emaildiscla=
+imer/Icons-09.jpg" style=3D"width: 35px; height: 35px;"></a></td>
+</tr>
+</tbody>
+</table>
+<br>
+<em><font face=3D"Times New Roman" size=3D"3">Disclaimer:</font></em><br>
+&nbsp;
+<div style=3D"margin-left: 40px;"><i><font color=3D"black" face=3D"Times Ne=
+w Roman" size=3D"3">This message (including any attachments) contains confi=
+dential information intended for a specific individual and purpose. If you =
+are not the intended recipient, you should
+ delete this message and notify the sender and The Hong Kong Polytechnic Un=
+iversity (the University) immediately. Any disclosure, copying, or distribu=
+tion of this message, or the taking of any action based on it, is strictly =
+prohibited and may be unlawful.</font></i></div>
+&nbsp;
+<div style=3D"margin-left: 40px;"><i><font face=3D"Times New Roman" size=3D=
+"3">The University specifically denies any responsibility for the accuracy =
+or quality of information obtained through University E-mail Facilities. An=
+y views and opinions expressed are only
+ those of the author(s) and do not necessarily represent those of the Unive=
+rsity and the University accepts no liability whatsoever for any losses or =
+damages incurred or caused to any party as a result of the use of such info=
+rmation.</font></i></div>
+</body>
+</html>
+
+--_000_TY4P286MB5558DEECFBFF26A6F020D888DBCCATY4P286MB5558JPNP_--

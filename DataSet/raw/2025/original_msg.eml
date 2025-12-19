@@ -1,0 +1,296 @@
+Delivered-To: fishcollector2025@gmail.com
+Received: by 2002:a05:6a10:f952:b0:685:e98e:5628 with SMTP id el18csp3290805pxb;
+        Mon, 10 Nov 2025 20:51:35 -0800 (PST)
+X-Received: by 2002:a17:907:7ea4:b0:b72:d9ee:db89 with SMTP id a640c23a62f3a-b72e056d064mr933793366b.47.1762836695443;
+        Mon, 10 Nov 2025 20:51:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1762836695; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FS6toGlmwQ5X+G9Xm3T4mTnM4OcrenJ/T0DG1Q/kZgKtDMYPHDL8EtkcFgbYkQLZVS
+         ZrSF3q+GJmEJlRpR6bw+FJxZahWBlrfrdjfVvi0/krNg796bW+08M6W5knNDTkwdJsDR
+         j7NFAPp6M5yTh7V/mX6roogbwzgb0nc0rRBbUA7uL63yHCt9kRUjzDPH+WDKRinNkFtl
+         Hu7Sm16VEQDSGwnc2w1Q5k60oyRWWWvar91lh3XVavfv5rCj+/j8+FzNr7Cjrj+WHNwI
+         8fA6UCAl3jfhUIABOrduq3SokQyrO5Y++JvzvWhhRIZpiFJ6Urxsbd9ourAeqJ3h6pCZ
+         qvLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :dkim-signature;
+        bh=vZ7PxsOgAvCO/nQK+bnLGNsNvxeT9WmatOSOjYJcuNc=;
+        fh=Ml2Ji8d1kxFY4lBAPloG4qcYExHv36XtraOlSoxW+IA=;
+        b=cAG6QaFKLRv9dMrVHnbo3mqH3mPG+Qbw8JZWTyqviHJUevDIY/j7V7tiCpweDYWbdm
+         kbjdoLVQIxwV5eprqax6Yge4jp+Dku9/UpbkdzRJODHMiwJp/raPuErqYPmKctGzVoAF
+         CHGeum2PJIhTFEKMM+HrbsinAfjbKN0OlV+MfZSk2c/KixGNBfYyvd24P6x2GxDYPxdC
+         +KRHmsm7yYXuF0QkCQrJe+YQUkMy1ObVO4/4pJzHJnnzYFY33ZTnPAXazhQPnKNgIMnm
+         vW1M4Hq/NV9wzJsOoyJjScrbNrF+fGFkDWI9S4ykXZ5DsDM8CddiS8Bl/+Ier1h5g62X
+         +x9g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=brpedtZA;
+       spf=pass (google.com: domain of cwf.lyn@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cwf.lyn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <cwf.lyn@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b72bf95a1c4sor276337466b.15.2025.11.10.20.51.35
+        for <fishcollector2025@gmail.com>
+        (Google Transport Security);
+        Mon, 10 Nov 2025 20:51:35 -0800 (PST)
+Received-SPF: pass (google.com: domain of cwf.lyn@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=brpedtZA;
+       spf=pass (google.com: domain of cwf.lyn@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=cwf.lyn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762836695; x=1763441495; dara=google.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vZ7PxsOgAvCO/nQK+bnLGNsNvxeT9WmatOSOjYJcuNc=;
+        b=brpedtZAzdCQT6kwQmxKK/QT64a/Y0cfrrhjGzzjpRzmcrAJIAn3QBc9e057py71Y/
+         I3+fMdNTBBzQzirIvcFSPNS5R6zJzZSPi4avVzSCtwj+ePiU7/FrE7HtEwwsMidMXyhn
+         0p/IdL7y6HyKD2CVJ12/WtKZtgAfctl6oPAAUPA8rf0lbH8Y6lbg0V0/c/m17g8mCooN
+         FZMW5aHsPoyJ977nJ32YB7F4cYcdJh52SYwwbq3wX8lE8jm+QgCMiGSRpGLcERcixb9r
+         +cq/iNYy5PY4clPMBjB/Lta6vr/apqopDnD8ovSo79D9BilyjvsohMa7VmQs7Yk7/09N
+         vBJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762836695; x=1763441495;
+        h=to:subject:message-id:date:from:reply-to:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vZ7PxsOgAvCO/nQK+bnLGNsNvxeT9WmatOSOjYJcuNc=;
+        b=luJtFMrT2INxJ5Oy45ZmlDxyMaC85WfZXl+mgEF+Okdkpl7oB4InKwtrzJlWj1X4Rn
+         ONu7jynHWcPnGnR+OjLHPQ4OiTfg2JApnoeivum6VWOht8f4Mgu7bSgj2dwueMCQTZ6O
+         urhx9mWnBs5yyuwtamS5rfozESd6dcCoLPUPIPs7Q8N6SqHToGYl/L39L5GoZR1SARsQ
+         tzs0vd8rbfBVBY5a7vGtGBhf9IY1G1JxNnAtNC7PixhfadxPSQyfPOCVSmeU7NBCx/0C
+         oAAkIHszip4Gyj4zM4xurROlVvP9ZNa+IPDl1V2lOVLMnajKHY5WzV/+/HP/Tpm2sQWz
+         09sg==
+X-Gm-Message-State: AOJu0YwDllE8vfnUOEAfJtiJ2xUfRkormz01+iQPXTxnSeLxdLEopABw
+	/Qa1+fLK6rC9EhpDKdXaBDR2egXwc7QBtUtB0vsSLdOWvJjnS1HF0rv0CRhLcxPtTTVvH+J688f
+	YKKEdn55pLdL3zYCSpTWr+vIbRHQEltic2A==
+X-Gm-Gg: ASbGncs9t915fyqo63XfMOLVCNAR8RY3UuXZqjjLVNkcyPjdOLalckDz1Q2BxduU5zk
+	btRZwQl0je6W8hiSCA79dIJMEB/NHUqEzpaEZycdW0gszT7YEcqsnCxZrhQrjgSS8NaDGewFS1f
+	kxEOawYkFfyVneu7eZMV+I41K6j+SIZgX/PhdzuFqjX1Ng+p5Gln3RGW0xD4+jcB+YPyjsFL59U
+	h2SX+NAqdE3+gLO57L1pkVvqKWia7GEKSFftpEenKW3msYpbS3vlId1p2QpdK8biOX7X39qBg==
+X-Google-Smtp-Source: AGHT+IF9r6TBC5JuRM19dc32X4o19FvN9i3SN0sPlXF9VTdq5NG8oqeSMxjFzFqg6vPfO/tfX86WXx4/YXi4Od6KeY8=
+X-Received: by 2002:a17:907:2d8d:b0:b72:6d3e:848f with SMTP id
+ a640c23a62f3a-b72e0312d3emr888964966b.19.1762836694475; Mon, 10 Nov 2025
+ 20:51:34 -0800 (PST)
+MIME-Version: 1.0
+Reply-To: cwf.lyn@gmail.com
+From: Lyn <cwf.lyn@gmail.com>
+Date: Tue, 11 Nov 2025 12:51:22 +0800
+X-Gm-Features: AWmQ_bnErC8wxIZL1qkU2WzPr_PAgdFm8TdqXhHwQPMBG63UhAK0t9t03ivIJyQ
+Message-ID: <CABKsOK2=nb4Qoy=fRE1BSTPoXWVhB9Ee4T9Jvc-KoYguDJC3qQ@mail.gmail.com>
+Subject: 
+To: fishcollector2025@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000f8aa1a06434a66ad"
+
+--000000000000f8aa1a06434a66ad
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+*Hello, Lyn!*
+
+I recently came across the *System Analyst GO*opening on *PolyU*=E2=80=99s =
+job
+postings and wanted to reach out. If you=E2=80=99re not the right person to=
+ discuss
+this, could you kindly forward this message to the appropriate contact?
+
+*Titan Clarity* is a *U.S.-based company* that specializes in providing
+top-tier software engineers and IT professionals. Whether you're looking
+for talent in *backend, web, AI, mobile development, SAP, Oracle*, or
+*Salesforce*, we can help.
+
+Here=E2=80=99s what you should know about our proposal:
+
+   - Position: *System Analyst GO*
+   - Rate: *$38/hour* (typical range: *$38=E2=80=93$46/hour*; lower for rol=
+es like
+   tech support or sysadmin)
+
+We deliver fully vetted, English-fluent engineers=E2=80=94primarily from *B=
+razil*,
+but also from other parts of *Latin America* like *Costa Rica, Mexico,
+Argentina*, and *Chile*. They work remotely and exclusively for your team,
+fully aligned with your time zone. You=E2=80=99ll be able to interview each=
+ expert
+before making any decision.
+
+What sets us apart:
+
+   - *Speed:* Get top candidates in just 2=E2=80=934 days
+   - *No paperwork to start:* View profiles, interview, and decide=E2=80=94=
+no red
+   tape
+   - *No risk:* If none of the candidates are a fit, you owe nothing and
+   walk away freely
+   - *Total flexibility:* Cancel anytime with just 30 days=E2=80=99 notice
+
+Lyn, I=E2=80=99d love to schedule a short call to explore how we can suppor=
+t *PolyU*.
+Feel free to pick a time that works for you:
+
+*https://calendly.com/titanclarity/titan-clarity-intro-call
+<https://calendly.com/titanclarity/titan-clarity-intro-call>*
+
+Looking forward to connecting with you,
+Maya Knight
+
+Enterprise Sales
+
+*Titan Clarity* | Software Titans
+[image: Image] +1 (407) 369-8394 <+1%20%28407%29%20369-8394>
+[image: Image] 6526 Old Brick Rd, Windermere, Florida
+
+*STOP* receiving our messages
+<https://u27488202.ct.sendgrid.net/ls/click?upn=3Du001.H5ObiC52UAmhWVYP7UMT=
+rIY3DnidgAf-2BivcdDOxqakKRZEW5gVGbrPTXRIxyL36A-2FzmypgehpF58o5ClhB-2F-2FW6D=
+Ed7en03BOiyjGqtwyfhU-3DgAre_JLH2PU-2BEc3BnOaG3C-2B047YXC-2B0rarKhMzrcBU8ayM=
+34-2FxSuAzv0hnKGvRsn0O8DlM5ikSdqrxb8RChRzSJrf75hHz8llVgWy2PKR8PmIQtD9ksWS8Z=
+v0jQILsr-2FWDnCw25WpeVZ0ybdKuE9O2RLkNmTWoDf4bnlbeN3LBLY86MqS-2B4ftqMpgI1UCi=
+JBbLqGhfOu1oO-2Fl9zv2mlKC5Gg6pg-3D-3D>
+
+--000000000000f8aa1a06434a66ad
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div><p style=3D"margin:0cm;font-size:11pt;font-family:&#39;calibri&#39;,sa=
+ns-serif;color:rgb(33,33,33);font-style:normal;font-weight:400;letter-spaci=
+ng:normal;text-indent:0px;text-transform:none;white-space:normal;word-spaci=
+ng:0px;text-decoration:none"><b><span style=3D"font-size:12pt;font-family:&=
+#39;calibri&#39;,sans-serif">Hello, Lyn!</span></b></p><p style=3D"margin-r=
+ight:0cm;margin-left:0cm;font-size:11pt;font-family:&#39;calibri&#39;,sans-=
+serif;color:rgb(33,33,33);font-style:normal;font-weight:400;letter-spacing:=
+normal;text-indent:0px;text-transform:none;white-space:normal;word-spacing:=
+0px;text-decoration:none"><span style=3D"font-size:12pt;font-family:&#39;ca=
+libri&#39;,sans-serif">I recently came across the=C2=A0<b>System Analyst GO=
+</b>opening on=C2=A0<b>PolyU</b>=E2=80=99s job postings and wanted to reach=
+ out. If you=E2=80=99re not the right person to discuss this, could you kin=
+dly forward this message to the appropriate contact?</span></p><p style=3D"=
+margin-right:0cm;margin-left:0cm;font-size:11pt;font-family:&#39;calibri&#3=
+9;,sans-serif;color:rgb(33,33,33);font-style:normal;font-weight:400;letter-=
+spacing:normal;text-indent:0px;text-transform:none;white-space:normal;word-=
+spacing:0px;text-decoration:none"><span style=3D"font-size:12pt;font-family=
+:&#39;calibri&#39;,sans-serif"><b>Titan Clarity</b>=C2=A0is a=C2=A0<b>U.S.-=
+based company</b>=C2=A0that specializes in providing top-tier software engi=
+neers and IT professionals. Whether you&#39;re looking for talent in=C2=A0<=
+b>backend, web, AI, mobile development, SAP, Oracle</b>, or=C2=A0<b>Salesfo=
+rce</b>, we can help.</span></p><p style=3D"margin-right:0cm;margin-left:0c=
+m;font-size:11pt;font-family:&#39;calibri&#39;,sans-serif;color:rgb(33,33,3=
+3);font-style:normal;font-weight:400;letter-spacing:normal;text-indent:0px;=
+text-transform:none;white-space:normal;word-spacing:0px;text-decoration:non=
+e"><span style=3D"font-size:12pt;font-family:&#39;calibri&#39;,sans-serif">=
+Here=E2=80=99s what you should know about our proposal:</span></p><ul type=
+=3D"disc" style=3D"margin-bottom:0cm;color:rgb(33,33,33);font-family:&#39;a=
+ptos&#39;;font-size:16.799999px;font-style:normal;font-weight:400;letter-sp=
+acing:normal;text-indent:0px;text-transform:none;white-space:normal;word-sp=
+acing:0px;text-decoration:none"><li style=3D"margin:0cm;font-size:11pt;font=
+-family:&#39;calibri&#39;,sans-serif;color:rgb(84,130,53)"><span style=3D"f=
+ont-size:12pt;font-family:&#39;calibri&#39;,sans-serif">Position:=C2=A0<b>S=
+ystem Analyst GO</b></span></li><li style=3D"margin:0cm;font-size:11pt;font=
+-family:&#39;calibri&#39;,sans-serif;color:rgb(84,130,53)"><span style=3D"f=
+ont-size:12pt;font-family:&#39;calibri&#39;,sans-serif">Rate:=C2=A0<b>$38/h=
+our</b>=C2=A0(typical range:=C2=A0<b>$38=E2=80=93$46/hour</b>; lower for ro=
+les like tech support or sysadmin)</span></li></ul><p style=3D"margin-right=
+:0cm;margin-left:0cm;font-size:11pt;font-family:&#39;calibri&#39;,sans-seri=
+f;color:rgb(33,33,33);font-style:normal;font-weight:400;letter-spacing:norm=
+al;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;=
+text-decoration:none"><span style=3D"font-size:12pt;font-family:&#39;calibr=
+i&#39;,sans-serif">We deliver fully vetted, English-fluent engineers=E2=80=
+=94primarily from=C2=A0<b>Brazil</b>, but also from other parts of=C2=A0<b>=
+Latin America</b>=C2=A0like=C2=A0<b>Costa Rica, Mexico, Argentina</b>, and=
+=C2=A0<b>Chile</b>. They work remotely and exclusively for your team, fully=
+ aligned with your time zone. You=E2=80=99ll be able to interview each expe=
+rt before making any decision.</span></p><p style=3D"margin-right:0cm;margi=
+n-left:0cm;font-size:11pt;font-family:&#39;calibri&#39;,sans-serif;color:rg=
+b(33,33,33);font-style:normal;font-weight:400;letter-spacing:normal;text-in=
+dent:0px;text-transform:none;white-space:normal;word-spacing:0px;text-decor=
+ation:none"><span style=3D"font-size:12pt;font-family:&#39;calibri&#39;,san=
+s-serif">What sets us apart:</span></p><ul type=3D"disc" style=3D"margin-bo=
+ttom:0cm;color:rgb(33,33,33);font-family:&#39;aptos&#39;;font-size:16.79999=
+9px;font-style:normal;font-weight:400;letter-spacing:normal;text-indent:0px=
+;text-transform:none;white-space:normal;word-spacing:0px;text-decoration:no=
+ne"><li style=3D"margin:0cm;font-size:11pt;font-family:&#39;calibri&#39;,sa=
+ns-serif;color:rgb(84,130,53)"><span style=3D"font-size:12pt;font-family:&#=
+39;calibri&#39;,sans-serif"><b>Speed:</b>=C2=A0Get top candidates in just 2=
+=E2=80=934 days=C2=A0</span></li><li style=3D"margin:0cm;font-size:11pt;fon=
+t-family:&#39;calibri&#39;,sans-serif;color:rgb(84,130,53)"><span style=3D"=
+font-size:12pt;font-family:&#39;calibri&#39;,sans-serif"><b>No paperwork to=
+ start:</b>=C2=A0View profiles, interview, and decide=E2=80=94no red tape=
+=C2=A0</span></li><li style=3D"margin:0cm;font-size:11pt;font-family:&#39;c=
+alibri&#39;,sans-serif;color:rgb(84,130,53)"><span style=3D"font-size:12pt;=
+font-family:&#39;calibri&#39;,sans-serif"><b>No risk:</b>=C2=A0If none of t=
+he candidates are a fit, you owe nothing and walk away freely=C2=A0</span><=
+/li><li style=3D"margin:0cm;font-size:11pt;font-family:&#39;calibri&#39;,sa=
+ns-serif;color:rgb(84,130,53)"><span style=3D"font-size:12pt;font-family:&#=
+39;calibri&#39;,sans-serif"><b>Total flexibility:</b>=C2=A0Cancel anytime w=
+ith just 30 days=E2=80=99 notice=C2=A0</span></li></ul><p style=3D"margin-r=
+ight:0cm;margin-left:0cm;font-size:11pt;font-family:&#39;calibri&#39;,sans-=
+serif;color:rgb(33,33,33);font-style:normal;font-weight:400;letter-spacing:=
+normal;text-indent:0px;text-transform:none;white-space:normal;word-spacing:=
+0px;text-decoration:none"><span style=3D"font-size:12pt;font-family:&#39;ca=
+libri&#39;,sans-serif">Lyn, I=E2=80=99d love to schedule a short call to ex=
+plore how we can support=C2=A0<b>PolyU</b>. Feel free to pick a time that w=
+orks for you:</span></p><p style=3D"margin-right:0cm;margin-left:0cm;font-s=
+ize:11pt;font-family:&#39;calibri&#39;,sans-serif;color:rgb(33,33,33);font-=
+style:normal;font-weight:400;letter-spacing:normal;text-indent:0px;text-tra=
+nsform:none;white-space:normal;word-spacing:0px;text-decoration:none"><stro=
+ng><span style=3D"font-size:12pt;font-family:&#39;calibri&#39;,sans-serif">=
+<span dir=3D"ltr" style=3D"color:rgb(149,79,114);text-decoration:underline"=
+><a href=3D"https://calendly.com/titanclarity/titan-clarity-intro-call">htt=
+ps://calendly.com/titanclarity/titan-clarity-intro-call</a></span></span></=
+strong></p><p style=3D"margin-right:0cm;margin-left:0cm;font-size:11pt;font=
+-family:&#39;calibri&#39;,sans-serif;color:rgb(33,33,33);font-style:normal;=
+font-weight:400;letter-spacing:normal;text-indent:0px;text-transform:none;w=
+hite-space:normal;word-spacing:0px;text-decoration:none"><span style=3D"fon=
+t-size:12pt;font-family:&#39;calibri&#39;,sans-serif">Looking forward to co=
+nnecting with you,</span></p><table cellpadding=3D"0" cellspacing=3D"0" sty=
+le=3D"color:rgb(33,33,33);font-style:normal;font-weight:400;letter-spacing:=
+normal;text-transform:none;white-space:normal;word-spacing:0px;text-decorat=
+ion:none;font-size:medium;font-family:&#39;calibri&#39;"><tbody><tr><td><ta=
+ble cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:medium;font-fami=
+ly:&#39;calibri&#39;"><tbody><tr><td style=3D"padding:0px;vertical-align:mi=
+ddle"><h3 style=3D"margin:0px;font-size:18px;color:rgb(34,31,32)">Maya=C2=
+=A0Knight</h3><p style=3D"margin:0px;font-size:14px;font-family:&#39;calibr=
+i&#39;,sans-serif;color:rgb(34,31,32);line-height:22px">Enterprise Sales</p=
+><p style=3D"margin:0px;font-size:14px;font-family:&#39;calibri&#39;,sans-s=
+erif;font-weight:500;color:rgb(255,52,3);line-height:22px"><b>Titan Clarity=
+</b>=C2=A0|=C2=A0Software Titans</p><table cellpadding=3D"0" cellspacing=3D=
+"0" style=3D"font-size:medium;font-family:&#39;calibri&#39;;width:232.6875p=
+x"><tbody><tr><td height=3D"1" style=3D"width:232.6875px;border-bottom-widt=
+h:1px;border-bottom-style:solid;border-bottom-color:rgb(255,52,3);border-le=
+ft-width:medium;border-left-style:none;display:block"></td></tr></tbody></t=
+able><table cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:medium;f=
+ont-family:&#39;calibri&#39;"><tbody><tr height=3D"25" style=3D"vertical-al=
+ign:middle"><td width=3D"30" style=3D"vertical-align:middle"><table cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"font-size:medium;font-family:&#39;cal=
+ibri&#39;"><tbody><tr><td style=3D"vertical-align:bottom"><span style=3D"di=
+splay:block;background-color:rgb(255,52,3)"><img src=3D"https://cdn2.hubspo=
+t.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png" wid=
+th=3D"13" alt=3D"Image" style=3D"border:medium;max-width:!important;display=
+:block;background-color:rgb( 255 , 52 , 3 )"></span></td></tr></tbody></tab=
+le></td><td style=3D"padding:0px;color:rgb(34,31,32)"><a href=3D"tel:+1%20%=
+28407%29%20369-8394" style=3D"color:rgb(34,31,32);text-decoration:none;font=
+-size:12px">+1 (407) 369-8394</a></td></tr><tr height=3D"25" style=3D"verti=
+cal-align:middle"><td width=3D"30" style=3D"vertical-align:middle"><table c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:medium;font-family:&#=
+39;calibri&#39;"><tbody><tr><td style=3D"vertical-align:bottom"><span style=
+=3D"display:block;background-color:rgb(255,52,3)"><img src=3D"https://cdn2.=
+hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.=
+png" width=3D"13" alt=3D"Image" style=3D"border:medium;max-width:!important=
+;display:block;background-color:rgb( 255 , 52 , 3 )"></span></td></tr></tbo=
+dy></table></td><td style=3D"padding:0px"><span style=3D"font-size:12px;col=
+or:rgb(34,31,32)"><span dir=3D"ltr" style=3D"text-decoration:underline">652=
+6 Old Brick Rd, Windermere, Florida</span></span></td></tr></tbody></table>=
+<br><br><table cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:mediu=
+m;font-family:&#39;calibri&#39;"><tbody><tr><td style=3D"padding:0px"><a hr=
+ef=3D"https://u27488202.ct.sendgrid.net/ls/click?upn=3Du001.H5ObiC52UAmhWVY=
+P7UMTrIY3DnidgAf-2BivcdDOxqakKRZEW5gVGbrPTXRIxyL36A-2FzmypgehpF58o5ClhB-2F-=
+2FW6DEd7en03BOiyjGqtwyfhU-3DgAre_JLH2PU-2BEc3BnOaG3C-2B047YXC-2B0rarKhMzrcB=
+U8ayM34-2FxSuAzv0hnKGvRsn0O8DlM5ikSdqrxb8RChRzSJrf75hHz8llVgWy2PKR8PmIQtD9k=
+sWS8Zv0jQILsr-2FWDnCw25WpeVZ0ybdKuE9O2RLkNmTWoDf4bnlbeN3LBLY86MqS-2B4ftqMpg=
+I1UCiJBbLqGhfOu1oO-2Fl9zv2mlKC5Gg6pg-3D-3D" style=3D"color:rgb(34,31,32);te=
+xt-decoration:none;font-size:12px"><b>STOP</b>=C2=A0receiving our messages<=
+/a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></=
+table><br></div>
+
+--000000000000f8aa1a06434a66ad--

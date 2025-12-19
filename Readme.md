@@ -10,3 +10,6 @@ Source of DataSet
 https://monkey.org/~jose/phishing/   [2022 / 2023 / 2024]
 https://huggingface.co/datasets/ealvaradob/phishing-dataset 
 https://research.utwente.nl/en/datasets/phishing-validation-emails-dataset/
+
+mbox to csv
+https://github.com/jarrodparkes/mbox-to-csv

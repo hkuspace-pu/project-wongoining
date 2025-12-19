@@ -1,0 +1,762 @@
+Delivered-To: fishcollector2025@gmail.com
+Received: by 2002:a05:6a10:f952:b0:685:e98e:5628 with SMTP id el18csp3939086pxb;
+        Tue, 11 Nov 2025 19:02:42 -0800 (PST)
+X-Received: by 2002:a05:690c:670b:b0:788:bda:47c8 with SMTP id 00721157ae682-788136a8cd0mr20932327b3.55.1762916321536;
+        Tue, 11 Nov 2025 18:58:41 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEp/8W3Sbl9HXJBrJG9Ach4azZLDzRZBiolUaKi67OTXqAhhx+AzDXcbFB0vPtn+RQJrAi9
+X-Received: by 2002:a05:690c:670b:b0:788:bda:47c8 with SMTP id 00721157ae682-788136a8cd0mr20931977b3.55.1762916320523;
+        Tue, 11 Nov 2025 18:58:40 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1762916320; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=E0xm4i4PCv1EmqCLTgEjiMuKQQeo+/AUs0sWDKRlBPIGdhBotbJHv+CUdBSmJfJ/iY
+         ratlXZYsAc4gT162o8QLATqn49ry8tzAOEEKwUT0mcqsMbrMoWEZkOQNILRq7MSbEMpn
+         WTbAwxB4wO7r6vPxcXfDyjA4YMQrjPbXS7izeVU5gIyZNUn4uwc96WrIuDGwqUZAfxmI
+         qCxY5tfiFoi+8Ap2lyJqI0Ijb14rdRtqa2hiJUmMmBc8OtCrIOZd6V2VrM+I5WaVSLF7
+         FyS12o7Z9ZZgBm/imHIehz61Oxuo9SG1LIEEIdgyEoPuvM5PSMRPkrVyVB+O9uE5t0GX
+         ADLw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:msip_labels:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:to:from:dkim-signature;
+        bh=LdP26x81H1KgI0vCPMVRIsJ0gAF0niMX+HGLMTLHfF4=;
+        fh=7Q792ha4Gk+prkHBUvADDNAXvzBNURJ7l+YYW4JISBc=;
+        b=LyCPGAyMRQlbt+1ozws3SXY4DaPweCn8mwta0gA6yRmQAN1tWcYnkIWaHqiqUsbP9n
+         FSKvcB0Cz4/gf4OVk0ux6U3pZok+CIeUXkysEodiz1G4erSMndEi8YpdJTIYHKO33YBW
+         RH9IVsL5RRyazrRmhpxuFE57rx+aTlIXlvhYqajsMU0Tw3m+UzP1vQtQ/ULV9M2Qt7b1
+         J5QKR9qqF/bxL5faamhy93kty7NnhpmsXIhFbTjzC8VVXK9/iNyc+1SY9n8gqO/+rDVU
+         cT+TSPQ1DdMfGdB3eBn3iugsfyPyxadeJA/353ejq+yF44cZtS2DCQ7K922cPsstWjFc
+         RHLg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@polyu.edu.hk header.s=selector1 header.b=rdQ5vvWZ;
+       arc=pass (i=1 spf=pass spfdomain=polyu.edu.hk dkim=pass dkdomain=polyu.edu.hk dmarc=pass fromdomain=polyu.edu.hk);
+       spf=pass (google.com: domain of info.risa@polyu.edu.hk designates 2a01:111:f403:c407::1 as permitted sender) smtp.mailfrom=info.risa@polyu.edu.hk
+Return-Path: <info.risa@polyu.edu.hk>
+Received: from OS0P286CU010.outbound.protection.outlook.com (mail-japanwestazlp170110001.outbound.protection.outlook.com. [2a01:111:f403:c407::1])
+        by mx.google.com with ESMTPS id 00721157ae682-787d6acdf6esi60355557b3.524.2025.11.11.18.58.40
+        for <fishcollector2025@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Nov 2025 18:58:40 -0800 (PST)
+Received-SPF: pass (google.com: domain of info.risa@polyu.edu.hk designates 2a01:111:f403:c407::1 as permitted sender) client-ip=2a01:111:f403:c407::1;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@polyu.edu.hk header.s=selector1 header.b=rdQ5vvWZ;
+       arc=pass (i=1 spf=pass spfdomain=polyu.edu.hk dkim=pass dkdomain=polyu.edu.hk dmarc=pass fromdomain=polyu.edu.hk);
+       spf=pass (google.com: domain of info.risa@polyu.edu.hk designates 2a01:111:f403:c407::1 as permitted sender) smtp.mailfrom=info.risa@polyu.edu.hk
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qyPIOv/CiFfFSZQt/ocK5+xY5Ak026cOaDm0E1dCTbfG47jxnhNt+IpfUaPLR4vhozNcNVSdXfIFuyLnzmbsIywOFsNI9/+kkWM2gRSAWAFEKAmvPUbaasa1edk0sKyaE/klOKxpYvqoynQ9gYuO/wPcDE2oJSqKCRGKEbIVjNsOWYaIMuRei9tBP/bgxhesYSkoOyfRgwSrItxH2bCDY9qFwiq7x/hBY2m6jrfyLaZTgmPjY09BUnLC8ro9WfUjGiO22NUhIbrXi4toSfDJnNDi+otyP98cLz4csPzfo7hclQDc44FZPj06aBI8JMEQGkp/tK8/pxGz5PmnwNxR5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LdP26x81H1KgI0vCPMVRIsJ0gAF0niMX+HGLMTLHfF4=;
+ b=K55efy7sDi8UNFUXZTDkkPNQBFOnqO/MixRJB3cwhJTaydMisfuGL+lIV276FmzEF0AuSYaUqiRdGGRMhZaVgUjvi30BPkzHkLJdMaFG/WYjweKOlH3wzuS5xiWUHyTkt92HMmKxNPj3Hcehc7Whdb1CsL9/Ui5VtwgrcDDXtLmsyQoPaGTnjKQLiyYSO7r4xxlPc4DDHyuaoGFPxgMD2FGuQl2w7Of2C/L72aTHfL+kE6EnYeHbFAhoNykUagtqRdNLQmr1R0fYIu/oXqLY6i90RiXcSP08G1ivqmSARaizLWhng42N/fiAuAso5SkPFksMK4bthjfpp4gI8TdCyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=polyu.edu.hk; dmarc=pass action=none header.from=polyu.edu.hk;
+ dkim=pass header.d=polyu.edu.hk; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=polyu.edu.hk;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LdP26x81H1KgI0vCPMVRIsJ0gAF0niMX+HGLMTLHfF4=;
+ b=rdQ5vvWZtIIu1Qp032qsM4/wj9umnaooiKpUPfSzVxnNsE1Q69VuwJKMA3XuogSoV6sCDbOaVi6lbgCas8U+she+dkHvSC5+ulkMgDyEkQBf0k6PYjhnEvCThmn6YjfNvCybCgtgzqNL/NwRVY8w2E/xc2eIRWhQPmU1i6k8Kl4=
+Received: from TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:264::11)
+ by TYCP286MB1636.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:185::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Wed, 12 Nov
+ 2025 02:58:37 +0000
+Received: from TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::1027:5173:acbe:8415]) by TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::1027:5173:acbe:8415%7]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
+ 02:58:36 +0000
+From: "Research Institute for Smart Ageing [PAIR]" <info.risa@polyu.edu.hk>
+To: "fishcollector2025@gmail.com" <fishcollector2025@gmail.com>
+Subject: =?big5?B?Rnc6IFtTVVNQRUNURUQgU1BBTV0grautbrNxqr4=?=
+Thread-Topic: =?big5?B?W1NVU1BFQ1RFRCBTUEFNXSCtq61us3Gqvg==?=
+Thread-Index: AQHcSIVcQWwhlajPZkq7g0Dv52KU2bTub0rq
+Date: Wed, 12 Nov 2025 02:58:36 +0000
+Message-ID:
+ <TY4P286MB555891697CC1E9776F614283DBCCA@TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM>
+References:
+ <getresponse.xserial.s56braOtgNaWqAwsOLoFLqHolbqo5ZbOMo3kaPMbN+jfwKMfzR+1k528Sl+vZEK2wEp4e75mKAaqoHGtAX0lhYwBQ9XjwQIlNn/WDsn+dG+Iowjlk0XlQD0YO4XpYxQNF+JUZriPZNC0V25xpYw7WyOyxznQkd4gOgx+zoHyhBSBjdA=@getresponse-mail.com>
+In-Reply-To:
+ <getresponse.xserial.s56braOtgNaWqAwsOLoFLqHolbqo5ZbOMo3kaPMbN+jfwKMfzR+1k528Sl+vZEK2wEp4e75mKAaqoHGtAX0lhYwBQ9XjwQIlNn/WDsn+dG+Iowjlk0XlQD0YO4XpYxQNF+JUZriPZNC0V25xpYw7WyOyxznQkd4gOgx+zoHyhBSBjdA=@getresponse-mail.com>
+Accept-Language: zh-HK, en-US
+Content-Language: zh-HK
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=polyu.edu.hk;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY4P286MB5558:EE_|TYCP286MB1636:EE_
+x-ms-office365-filtering-correlation-id: 71c06ccb-4da4-4596-408c-08de21975ff3
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|376014|366016|1800799024|69100299015|4022899009|38070700021|8096899003;
+x-microsoft-antispam-message-info:
+ =?big5?B?U2hjNVdQN3Z0V2RnOGRXbG9DTUhEbUNYdTZMeE4vajVZakVtKy9Ea2xRY2ZHSkhV?=
+ =?big5?B?V1FHQzFmWlZPblNFek9XOHJKNG00UTVmZGZENXdmSm9PUEFGZytkUHdqbTA3RlVr?=
+ =?big5?B?Y3JIWTMxSE9PRTFiRFJwM3FtSENGYWJxTFNpRVVJb0Q3bXphWnlxNGc1c1hXQUNo?=
+ =?big5?B?NFpIS0JSakxFamNJM0FmUGRKd0oycEs2ZndHZjVqak9xaW52ZWpkamkzRG54NExL?=
+ =?big5?B?UE9jM2Z0OHFMSEVhMjJPb2VyVDlkTDlPT1JpNWtMZXpHbnoyaDN4NjI2cUp2aVNJ?=
+ =?big5?B?T2xjRHRHRWlKRjIrTHBSY3dPM1VUZ0VKM1dDWnMxS3dVVXJhYkVCVUJ2SCt6NFh1?=
+ =?big5?B?VXJsc2swRU9DNlEzc0Zqam5ZcmVWKy8xTTdKRFBheU5IZEY3Q2NUa1pjM3RmOVpW?=
+ =?big5?B?a3BwT3p5Z3kwTGZZNzdFYTk5djFWajFXZkRiSEswZWpManlxaTZGZS9KZkVzT0hj?=
+ =?big5?B?eEF1TTdNQkRJOHh4WmxKSEp3c3duQnNwVFRSQ2pBMjZRYXZqekRLZ1oyd1FmdEd5?=
+ =?big5?B?b0lCTFVPL25NTzNrTkxnNVgwQkhFS1BWYytGOEF5L2JtdlVNWFdaeVMvcVJ0eGsw?=
+ =?big5?B?aUxoZDl6byt0dWpSSWJlNjNtbUpJUkk3dVYxTUdaV1puUytnUEtBWXZPTFN3Mm4z?=
+ =?big5?B?RWR4NEhNU2FrYVppRjJ5aE4rU0pndGdabkNlcFJuMVkrL2M1RjVxb1ZrVjdBR0RR?=
+ =?big5?B?eTNDb3ZKUlRKM1NDTHNJZWc5c2FBU3VINXhGOU9yZk9vcVNTaDlCTXlhbExRNXpP?=
+ =?big5?B?MUVLTUlUT0dHZW51TzEwT21BODNZQmR0ME81Snl4alRFT2dNM0c4b2xER3NDOGgv?=
+ =?big5?B?WFVTcEk4QzVhaFYraStIdktqbUNMcjBkY3hPdmFhTnFTVU9qRzhKUkVrVmF6LzVY?=
+ =?big5?B?eVVPMHQ5RnZ3dkgzQzBjTGlBRUxYTTZEKzEvc05tUWVNZnRPbEZQRVgxcnRHMm9X?=
+ =?big5?B?LzA5Sm1oN00yUmdITmRFNkRhSHE2ZENleEJkTG5FT1RZZjhUeWNuaG1FNTg0bzBY?=
+ =?big5?B?M3RnbG51TW03SHBLckJlT3dlWG1uNmdlU3NtZVlteldlaGo2b0JxYXF4aGV1dlN0?=
+ =?big5?B?eCs4cktlZE1LY0pOMVdZSk4yOVJCc3dWZDl2TXU3c25LRk1JYnZjVUw5SjZZeE5P?=
+ =?big5?B?SlJQRCtETldXekROaUpTYzJGS0xGUm10MkJsb2RmRkttN3hHa3hHZENjeWh5NVhQ?=
+ =?big5?B?MVhaT3dlTmd5aEI4WjZiNVBIUldEa2ZSQWlEZXJCeTFsYVFZZ1RXdGhFNTlNdjN2?=
+ =?big5?B?T2dTdVE3N0FjVmJ4eWxKUEdlUEMzL1NHSFdOVVptVXVUVjdLOUg5WTRXQm1JbnF6?=
+ =?big5?B?b04rWlV3SHNtVWs0cGhTbDQ3cFRhdSt5VjUxZEpUMkFpMEtFZzkvbWFnQ20wc1hJ?=
+ =?big5?B?SnZ3KzJaQjVLTTlBRU1wYXBILzVBN1c4WmsyTXNKV1k2QnptWnBlS0dtelJ6NWJR?=
+ =?big5?B?aU9Va0E1YldwUkxjRVhXTjFaSFduSlhvQVljY05SeUVGUitBcHkxdU9hTzY0M0Rs?=
+ =?big5?B?aWpTUWxsbjBhb1FkbWdac3BpOERNd2FTMEJjdUF1T09TcU1XL0tjUXJOL3pBaWEz?=
+ =?big5?B?SktaVWlpVmZLNjVIam1GQzhPNFA2bHpESFVNWS93N280OFR1TVh2VitTMGVyWllP?=
+ =?big5?B?Z3F0VUJSRVNBQnFkd2FmVGNUK3g4cnlFWi85ZkE1WUxTWkFyamVwdFJiczNyZGsz?=
+ =?big5?B?NFZ0WVBNMHAzMzRqTzArWUlFTnpFODZxUHhpRmYyUVBTMGVrVVFranp4UzZBQ1J4?=
+ =?big5?B?VFN2MG1BWkk3S1VSU3BVR0EwSzloa2NmdEpscFZRSUFFZkV0Z2RRZGFqWFJISEpH?=
+ =?big5?Q?VoKousm3/BZBonA7bhxg380M4lkFsVJo?=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(69100299015)(4022899009)(38070700021)(8096899003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?big5?B?aHcyNEp0OWVtRTN2RGRLWGVjQStmZ1B2Qk56TjgvVHVJVU5CUWRlK1JjVWtTTy9C?=
+ =?big5?B?TDQ0dEJYeXl3T0VLQXJiVnRSTTN0YkhrMW5pNWlrNnpEdjBFYWtuY2hWRkZ6b3VD?=
+ =?big5?B?a04zVC9Xd2E2MjV1dzNJTWxyZ3ErQnRueklJcU9DZ1dVTnBqQ3hLYXoyczRibnZy?=
+ =?big5?B?L3U1aEJkSlJ4Kzl4OGhLZEpZeDVkVnd1V3FXZ1hzNDR6OXdwdGFTeXpBbDN6N21N?=
+ =?big5?B?WjVpMzg2ZGZkVGw3TGNFRUdKN1B4MGE3Mm9ldXRrb0NJUnpzWkNCWGovL0xseTNs?=
+ =?big5?B?UUxacThta2pzem5nNUFhalU3N3FrT0VGS3AxOFFKdzg1UXFvRU1oa1lQSUR6d2J1?=
+ =?big5?B?cXlUajhBZ3cxQTYvVUR6Mk12Vm1BK0RvZjRwbjlJWklXVHNUb3VXN3hhWTFqclpI?=
+ =?big5?B?bzcvQjc5bG9yOGwxc2pmbHRHY05hUVBJMFdtdEZVSDR1UUZMTXA3UVJ6Z3lHdk5M?=
+ =?big5?B?UTJDcjV3OWNiTFdyeGFZU0pjMWVkUFVCQ2RCSFVINlJuTkZxSkdXaG13QUFUT1lj?=
+ =?big5?B?R2lVVHlhRUFDQ09TaEl3M2tENTBueGxXRGZxTmJOZWN2QXU0OWxvWm9vaVlQbTFN?=
+ =?big5?B?am4xeGUxNUlxNERrQ2ViNFcrdE1iUEpEeVQrV1ZYNTY0ZElPcXFZcml4UWNLQU1X?=
+ =?big5?B?YXpHWjJSbFAvTmw4RE5hcFo2L0Vrbmt4NWtUVCtqM3BLQmhQbDh6TjExNEFFTS9k?=
+ =?big5?B?dHplZFVxT0FiNzdJcnQ3a01jelJ6bnhtV3plTG9SNDN5blV6VVpnTjZFVitxQVlR?=
+ =?big5?B?VmEwSDhzTm9YSDVKcnBvOGdkL3J4aEtoZUxVbUpFSXgwWWhTUUx3dFRobUUzRTU5?=
+ =?big5?B?ekk3cGRaNTh2Z0tLcE51UGo5dHR1a2ttSXo4VkhlajRqM2toWnZObXRoRFBUNUNn?=
+ =?big5?B?V29WL3pwQnpWVElKTkt0ZzhIaEhSOGxBTUc4dUhMQm5Ed0o2K29NVUczdEI2V20v?=
+ =?big5?B?NG95aXFuQm5zN3ljZENwNUsvTGNsMkZEWTVtc3VGV0tCY1U4Nk9xa283R2MyOU40?=
+ =?big5?B?TkpMaUxUVU5McnkrNUVJc2d5Q1NPbnpObGNoU0JXNWk4NCt5NW8wTmYzbVVBa21E?=
+ =?big5?B?cjlaNkVweGJmRHdxQ1d0eGlQQjdQbUtvbnllZkY5RERXejE1S0VGdG5NK3ZQVllr?=
+ =?big5?B?K0ZNR1IzR2N6UlRKWk5VTk01a04wbTNwWWZoVkJtTnBHNWhsQjkzenBlNkdRa1Vm?=
+ =?big5?B?TVFuTE8vMS9SU2w2UTc2LzNFQ2xGbVJBQ1I5azZLQUtWZ3A2N3ZjMzE5bWlic1cz?=
+ =?big5?B?aGl0WHVuTkNrVEtVSHh6eHZRZ3J4UDlSRWpTUDZlUkgvRVZNeXd2UXkweEI4aGs3?=
+ =?big5?B?bldKOERReG5QQXhrQm5OWlhEeC9TQjRSZTI3bXUxcGRIc2ZFQnVqTjJmLzdnNEpP?=
+ =?big5?B?NEZZTyt4UDc2R2FDYnNNa0krbVlaSHdNRndvZUJWeVZYQUZxb1FhNXVNcWJpeGVo?=
+ =?big5?B?bXdOZW5Cc2JxQ1hGMTRyL1ozNFljNzAxSlFCSXJ5UElFQ0d4VnkzcmFzTkxmYlQ3?=
+ =?big5?B?OHhWSkxCQ3FXQnVGUFY0Nmo3TVlUL1d3Mm9GSEFpV2RZeUFNVW0wUzlpMmROS2lM?=
+ =?big5?B?ZEVqaG9GM0w2TndiL1RRakExeEhJTVUzNFBDZEhhNDl4MXA2ZUpkYklhaWdkS1Bz?=
+ =?big5?B?Q09IOWJyWHF5d1pSQlJWNFVGR3RPbWJuaUVncm9YYXN6VGEwT2l6WGdUWmdRcTdS?=
+ =?big5?B?R1BIdjBLY0FlT1daSDhEbnY1L0pmUjB2eXE0eXRvUUV6STFoaWdCbXY1dUdSSDZn?=
+ =?big5?B?UnY0ZWVhVEYySmc2V0dxQjZIR2tOLzd0MEZxQktHWVZHQkNnK3BZMzhNdTFkU1ZD?=
+ =?big5?B?Q1FUWSs0NXpIbEZMM0RoQmlTQndTOVZPbGpuSE5uREwxQitGS0tYMkpCRzFId0RI?=
+ =?big5?B?OWE5UkxNSmVXM3JLK0lOM0lhNzVzWTQyQUVzalRucHA0bUV5eit0citpTTFObGkx?=
+ =?big5?B?ci8rWmdmRWNxcUgrekhNL21WazAvMjd0Tkh4bitieVdlekV2UU81TkxnMFd6Qm44?=
+ =?big5?Q?xFKuh3CJajUGwryc?=
+Content-Type: multipart/alternative;
+	boundary="_000_TY4P286MB555891697CC1E9776F614283DBCCATY4P286MB5558JPNP_"
+MIME-Version: 1.0
+X-OriginatorOrg: polyu.edu.hk
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY4P286MB5558.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 71c06ccb-4da4-4596-408c-08de21975ff3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2025 02:58:36.6031
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 8f37f760-b187-4981-b82f-e5dc6f5bcf44
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qlu2F4/CPns4NDqgHNgDwavOPpR15af8GTeciPGwFMGDTrI0NbeLpJjCDp89MCxgyopzw/2JkbVLHm/l0pgulg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCP286MB1636
+
+--_000_TY4P286MB555891697CC1E9776F614283DBCCATY4P286MB5558JPNP_
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
+
+DQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXw0KsUil86rMOiBIS2VUb2xsIDxhY2Nv
+dW50c0BwaW5kaWJveXMuYWU+DQqxSKXzpOm0wTogMjAyNaZ+MTCk6zI5pOkgMTE6MzcNCqaspfOq
+zDogUmVzZWFyY2ggSW5zdGl0dXRlIGZvciBTbWFydCBBZ2VpbmcgW1BBSVJdIDxpbmZvLnJpc2FA
+cG9seXUuZWR1LmhrPg0KpUSmrjogW1NVU1BFQ1RFRCBTUEFNXSCtq61us3Gqvg0KDQoNCkNBVVRJ
+T046IEV4dGVybmFsIGVtYWlsLiBEbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50
+cyB1bmxlc3MgeW91IHJlY29nbml6ZSB0aGUgc2VuZGVyIGFuZCBrbm93IHRoZSBjb250ZW50IGlz
+IHNhZmUuDQoNCg0KDQpbaHR0cHM6Ly91cy1tcy5nci1jZG4uY29tL2dldHJlc3BvbnNlLUpJdlBk
+L3Bob3Rvcy80ZjY4NWVmOS0zOGQxLTQ0OWMtYWE1NS1mOTBjOGI5MmZjMDEucG5nXQ0KDQq/y7dS
+qrqryKThoUcNCg0Kp9qtzLNxqr6xeqFBsXqzzKrxqrqm27DKpUm02qZdsWKz5rDdw0SlvK/gpqil
+XLNCsnqhQw0KDQqzb6xPsXqqurPMq+Gzcaq+oUMNCg0KpnClvK/gpmKlvKjTIDQ4IKRwrsmkuiCn
+87dzsWKz5rjqrsahQbF6sWKk4anSqMmms6q6qdKms6pBsMikzsB1tGaxTrd8vMiwsaFBqr2m3Kao
+pVy40ahNpUm02rDdw0ShQw0KDQqssMHXp0uqQbDIpKTCX6FBvdCozLfTpUikVahCxkq+3qdAoUcN
+Cg0Kp/O3c7F6qrqxYrPmuOquxg0KDQq90LVupEqxeqq6sWKk4aFBp/O3c7Fis+amYad9pM6rSKXO
+pWS46q7GoUMNCg0KvVS7e7F6qrqlSbTaDQoNCqfzt3O46q7Gq+GhQb3Qp7mmqCAzRCCmd6X+xefD
+0qVIvVS7e6VJtNqhQw0KDQqxeqVppUizerlMpUikVaZ3pf6zc7Wyp/O3c7F6qrqxYrPmuOquxqFH
+DQoNCsJJwLumubNCPGh0dHBzOi8vcGluZGlib3lzLmFlL2JveXMvPg0KDQoNCg0KDQoNCrdQwcKx
+eqq6sHSmWLtQpOSr+aFDDQoNCkhLZXRvbGwNCg0KLCA5IENoZXN0bnV0IENsb3MsIDY3OTQ1MSwg
+U2luZ2Fwb3JlLCBTaW5nYXBvcmUNCg0KWW91IG1heSB1bnN1YnNjcmliZTxodHRwczovL2FwcC5n
+ZXRyZXNwb25zZS5jb20vdW5zdWJzY3JpYmUuaHRtbD94PWE2MmImY289OU1iWUI0Jm09QlpiSzUy
+Jm1jPUp1JnM9QkxzVTZvdiZ1PUpJdlBkJno9RVZMYXRZdSY+IG9yIGNoYW5nZSB5b3VyIGNvbnRh
+Y3QgZGV0YWlsczxodHRwczovL2FwcC5nZXRyZXNwb25zZS5jb20vY2hhbmdlX2RldGFpbHMuaHRt
+bD94PWE2MmImY289OU1iWUI0Jm09QlpiSzUyJnM9QkxzVTZvdiZ1PUpJdlBkJno9RUlrSmg3RCY+
+IGF0IGFueSB0aW1lLg0KDQpQb3dlcmVkIGJ5Og0KW0dldFJlc3BvbnNlXTxodHRwczovL2FwcC5n
+ZXRyZXNwb25zZS5jb20vcmVmZXJyYWwuaHRtbD94PWE2MmImYz1McVRDZyZ1PUpJdlBkJno9RVFv
+R3k2bCY+DQoNCg0KW2h0dHBzOi8vd3d3LnBvbHl1LmVkdS5oay9lbWFpbGRpc2NsYWltZXIvUG9s
+eVVfRW1haWxfU2lnbmF0dXJlLXYyLmpwZ108aHR0cDovL3d3dy5wb2x5dS5lZHUuaGsvPg0KDQp3
+d3cucG9seXUuZWR1LmhrPGh0dHA6Ly93d3cucG9seXUuZWR1LmhrLz4NCg0KW2h0dHBzOi8vd3d3
+LnBvbHl1LmVkdS5oay9lbWFpbGRpc2NsYWltZXIvSWNvbnMtMDIuanBnXTxodHRwczovL3d3dy5w
+b2x5dS5lZHUuaGsvY3BhL29ubGluZS1jaGFubmVscy8jaXBvbHl1YXBwPiAgICAgICAgICAgICAg
+ICBbaHR0cHM6Ly93d3cucG9seXUuZWR1LmhrL2VtYWlsZGlzY2xhaW1lci9JY29ucy0wMy5qcGdd
+IDxodHRwczovL3d3dy5mYWNlYm9vay5jb20vSG9uZ0tvbmdQb2x5VT4gICAgICAgICAgICAgICAg
+W2h0dHBzOi8vd3d3LnBvbHl1LmVkdS5oay9lbWFpbGRpc2NsYWltZXIvSWNvbnMtMDQuanBnXSA8
+aHR0cHM6Ly93d3cueW91dHViZS5jb20vdXNlci9Ib25nS29uZ1BvbHlVPiAgICAgICAgICAgIFto
+dHRwczovL3d3dy5wb2x5dS5lZHUuaGsvZW1haWxkaXNjbGFpbWVyL0ljb25zLTA1LmpwZ10gPGh0
+dHBzOi8vd3d3Lmluc3RhZ3JhbS5jb20vaG9uZ2tvbmdwb2x5dS8+ICAgICAgICAgICAgICBbaHR0
+cHM6Ly93d3cucG9seXUuZWR1LmhrL2VtYWlsZGlzY2xhaW1lci9JY29ucy0wNi5qcGddIDxodHRw
+czovL3d3dy5saW5rZWRpbi5jb20vc2Nob29sL2hvbmcta29uZy1wb2x5dGVjaG5pYy11bml2ZXJz
+aXR5Lz4gICAgICAgICAgICAgW2h0dHBzOi8vd3d3LnBvbHl1LmVkdS5oay9lbWFpbGRpc2NsYWlt
+ZXIvSWNvbnMtMDcuanBnXSA8aHR0cHM6Ly90d2l0dGVyLmNvbS9Ib25nS29uZ1BvbHlVPiAgICAg
+ICAgICAgICBbaHR0cHM6Ly93d3cucG9seXUuZWR1LmhrL2VtYWlsZGlzY2xhaW1lci9JY29ucy0w
+OC5qcGddIDxodHRwczovL3d3dy5wb2x5dS5lZHUuaGsvLS9tZWRpYS9kZXBhcnRtZW50L2hvbWUv
+c2V0dGluZy9wb2x5dS13ZWNoYXRfcXItY29kZV8yMDE5MDkwMy5qcGc/YmM9ZmZmZmZmJmg9MTUw
+Jnc9MTUwJmhhc2g9Njc5RUU5NUJDQjE3OTZGNzFCNUE0MTQ5NjQ3Nzg1Qzk+ICAgICAgICAgICAg
+ICAgIFtodHRwczovL3d3dy5wb2x5dS5lZHUuaGsvZW1haWxkaXNjbGFpbWVyL0ljb25zLTA5Lmpw
+Z10gPGh0dHBzOi8vd3d3LndlaWJvLmNvbS9ob25na29uZ3BvbHl1Pg0KDQpEaXNjbGFpbWVyOg0K
+DQpUaGlzIG1lc3NhZ2UgKGluY2x1ZGluZyBhbnkgYXR0YWNobWVudHMpIGNvbnRhaW5zIGNvbmZp
+ZGVudGlhbCBpbmZvcm1hdGlvbiBpbnRlbmRlZCBmb3IgYSBzcGVjaWZpYyBpbmRpdmlkdWFsIGFu
+ZCBwdXJwb3NlLiBJZiB5b3UgYXJlIG5vdCB0aGUgaW50ZW5kZWQgcmVjaXBpZW50LCB5b3Ugc2hv
+dWxkIGRlbGV0ZSB0aGlzIG1lc3NhZ2UgYW5kIG5vdGlmeSB0aGUgc2VuZGVyIGFuZCBUaGUgSG9u
+ZyBLb25nIFBvbHl0ZWNobmljIFVuaXZlcnNpdHkgKHRoZSBVbml2ZXJzaXR5KSBpbW1lZGlhdGVs
+eS4gQW55IGRpc2Nsb3N1cmUsIGNvcHlpbmcsIG9yIGRpc3RyaWJ1dGlvbiBvZiB0aGlzIG1lc3Nh
+Z2UsIG9yIHRoZSB0YWtpbmcgb2YgYW55IGFjdGlvbiBiYXNlZCBvbiBpdCwgaXMgc3RyaWN0bHkg
+cHJvaGliaXRlZCBhbmQgbWF5IGJlIHVubGF3ZnVsLg0KDQpUaGUgVW5pdmVyc2l0eSBzcGVjaWZp
+Y2FsbHkgZGVuaWVzIGFueSByZXNwb25zaWJpbGl0eSBmb3IgdGhlIGFjY3VyYWN5IG9yIHF1YWxp
+dHkgb2YgaW5mb3JtYXRpb24gb2J0YWluZWQgdGhyb3VnaCBVbml2ZXJzaXR5IEUtbWFpbCBGYWNp
+bGl0aWVzLiBBbnkgdmlld3MgYW5kIG9waW5pb25zIGV4cHJlc3NlZCBhcmUgb25seSB0aG9zZSBv
+ZiB0aGUgYXV0aG9yKHMpIGFuZCBkbyBub3QgbmVjZXNzYXJpbHkgcmVwcmVzZW50IHRob3NlIG9m
+IHRoZSBVbml2ZXJzaXR5IGFuZCB0aGUgVW5pdmVyc2l0eSBhY2NlcHRzIG5vIGxpYWJpbGl0eSB3
+aGF0c29ldmVyIGZvciBhbnkgbG9zc2VzIG9yIGRhbWFnZXMgaW5jdXJyZWQgb3IgY2F1c2VkIHRv
+IGFueSBwYXJ0eSBhcyBhIHJlc3VsdCBvZiB0aGUgdXNlIG9mIHN1Y2ggaW5mb3JtYXRpb24uDQo=
+
+--_000_TY4P286MB555891697CC1E9776F614283DBCCATY4P286MB5558JPNP_
+Content-Type: text/html; charset="big5"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dbig5">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>=B1H=A5=F3=AA=CC:</b> HKeToll &=
+lt;accounts@pindiboys.ae&gt;<br>
+<b>=B1H=A5=F3=A4=E9=B4=C1:</b> 2025=A6~10=A4=EB29=A4=E9 11:37<br>
+<b>=A6=AC=A5=F3=AA=CC:</b> Research Institute for Smart Ageing [PAIR] &lt;i=
+nfo.risa@polyu.edu.hk&gt;<br>
+<b>=A5D=A6=AE:</b> [SUSPECTED SPAM] =AD=AB=ADn=B3q=AA=BE</font>
+<div>&nbsp;</div>
+</div>
+<style type=3D"text/css">
+<!--
+#x_outlook a
+	{padding:0}
+div
+	{margin:0;
+	padding:0}
+table, td
+	{border-collapse:collapse}
+img
+	{border:0;
+	height:auto;
+	line-height:100%;
+	outline:none;
+	text-decoration:none}
+p
+	{display:block;
+	margin:13px 0}
+-->
+</style><style type=3D"text/css">
+<!--
+-->
+</style><style media=3D"screen and (min-width:480px)">
+<!--
+.x_moz-text-html .x_mj-column-per-100
+	{width:100%!important;
+	max-width:100%}
+-->
+</style><style type=3D"text/css">
+<!--
+-->
+</style><style type=3D"text/css">
+<!--
+.x_gr-mlimage-diqrcl img
+	{box-sizing:border-box}
+.x_gr-mltext-ajkqci a, .x_gr-mltext-ajkqci a:visited
+	{text-decoration:none}
+.x_gr-mltext-wttcmb a, .x_gr-mltext-wttcmb a:visited
+	{text-decoration:none}
+.x_gr-mltext-kidslr a, .x_gr-mltext-kidslr a:visited
+	{text-decoration:none}
+.x_gr-mltext-wfelvt a, .x_gr-mltext-wfelvt a:visited
+	{text-decoration:none}
+.x_gr-mltext-teckdh a, .x_gr-mltext-teckdh a:visited
+	{text-decoration:none}
+.x_gr-mltext-kkiyfr a, .x_gr-mltext-kkiyfr a:visited
+	{text-decoration:none}
+.x_gr-mltext-pcjelj a, .x_gr-mltext-pcjelj a:visited
+	{text-decoration:none}
+.x_gr-mltext-jplbsr a, .x_gr-mltext-jplbsr a:visited
+	{text-decoration:none}
+.x_gr-mltext-idaaag a, .x_gr-mltext-idaaag a:visited
+	{text-decoration:none}
+.x_gr-mltext-jtdpvx a, .x_gr-mltext-jtdpvx a:visited
+	{text-decoration:none}
+.x_gr-mlbutton-pugeqy p
+	{direction:ltr}
+.x_gr-mltext-lausfs a, .x_gr-mltext-lausfs a:visited
+	{text-decoration:none}
+.x_gr-footer-ufwayr a, .x_gr-footer-ufwayr a:visited
+	{color:#00BAFF;
+	text-decoration:underline}
+-->
+</style>
+<div style=3D"word-spacing:normal; background-color:#FFFFFF">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"left" styl=
+e=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"border:1px solid; font-size:12px">
+<td width=3D"100%" style=3D"padding:2pt 2pt 3pt 8pt; word-wrap:break-word; =
+font-weight:bold; color:#000000; border:1px solid">
+<p><span style=3D"color:red">CAUTION</span>: External email. Do not click l=
+inks or open attachments unless you recognize the sender and know the conte=
+nt is safe.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<div>
+<div class=3D"x_elem-body" lang=3D"en" dir=3D"auto" style=3D"background-col=
+or:#FFFFFF">
+<div style=3D"margin:0px auto; max-width:600px">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"width:100%">
+<tbody>
+<tr>
+<td style=3D"border-bottom:0 none #000000; border-left:0 none #000000; bord=
+er-right:0 none #000000; border-top:0 none #000000; direction:ltr; font-siz=
+e:0px; padding:10px 5px; text-align:center">
+<div class=3D"x_mj-column-per-100 x_mj-outlook-group-fix" style=3D"font-siz=
+e:0px; text-align:left; direction:ltr; display:inline-block; vertical-align=
+:top; width:100%">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"background-color:transparent; border-bottom:none; border-left:=
+none; border-right:none; border-top:none; vertical-align:top; padding:0">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"x_gr-mlimage-diqrcl x_gr-mlimage-pvuynl" styl=
+e=3D"font-size:0px; padding:5px; word-break:break-word">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:collapse; border-spacing:0px">
+<tbody>
+<tr>
+<td style=3D"width:557px"><img alt=3D"" width=3D"557" height=3D"auto" style=
+=3D"border:0; display:block; outline:none; text-decoration:none; height:aut=
+o; width:100%; font-size:13px" src=3D"https://us-ms.gr-cdn.com/getresponse-=
+JIvPd/photos/4f685ef9-38d1-449c-aa55-f90c8b92fc01.png"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"margin:0px auto; max-width:600px">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"width:100%">
+<tbody>
+<tr>
+<td style=3D"border-bottom:0 none #000000; border-left:0 none #000000; bord=
+er-right:0 none #000000; border-top:0 none #000000; direction:ltr; font-siz=
+e:0px; padding:20px 0; text-align:center">
+<div class=3D"x_mj-column-per-100 x_mj-outlook-group-fix" style=3D"font-siz=
+e:0px; text-align:left; direction:ltr; display:inline-block; vertical-align=
+:top; width:100%">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"background-color:transparent; border-bottom:none; border-left:=
+none; border-right:none; border-top:none; vertical-align:top; padding:0">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-ajkqci" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<span style=3D"font-size:16px">=BF=CB=B7R=AA=BA=AB=C8=A4=E1=A1G</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"margin:0px auto; max-width:600px">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"width:100%">
+<tbody>
+<tr>
+<td style=3D"border-bottom:0 none #000000; border-left:0 none #000000; bord=
+er-right:0 none #000000; border-top:0 none #000000; direction:ltr; font-siz=
+e:0px; padding:5px; text-align:center">
+<div class=3D"x_mj-column-per-100 x_mj-outlook-group-fix" style=3D"font-siz=
+e:0px; text-align:left; direction:ltr; display:inline-block; vertical-align=
+:top; width:100%">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"background-color:transparent; border-bottom:none; border-left:=
+none; border-right:none; border-top:none; vertical-align:top; padding:0">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-wttcmb" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<span style=3D"font-size:16px">=A7=DA=AD=CC=B3q=AA=BE=B1z=A1A=B1z=B3=CC=AA=
+=F1=AA=BA=A6=DB=B0=CA=A5I=B4=DA=A6]=B1b=B3=E6=B0=DD=C3D=A5=BC=AF=E0=A6=A8=
+=A5\=B3B=B2z=A1C</span></p>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-kidslr" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<span style=3D"font-size:16px">=B3o=ACO=B1z=AA=BA=B3=CC=AB=E1=B3q=AA=BE=A1C=
+</span></p>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-wfelvt" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<span style=3D"font-size:16px">=A6p=A5=BC=AF=E0=A6b=A5=BC=A8=D3 48 =A4p=AE=
+=C9=A4=BA =A7=F3=B7s=B1b=B3=E6=B8=EA=AE=C6=A1A=B1z=B1b=A4=E1=A9=D2=A8=C9=A6=
+=B3=AA=BA=A9=D2=A6=B3=AAA=B0=C8=A4=CE=C0u=B4f=B1N=B7|=BC=C8=B0=B1=A1A=AA=BD=
+=A6=DC=A6=A8=A5\=B8=D1=A8M=A5I=B4=DA=B0=DD=C3D=A1C</span></p>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-teckdh" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<span style=3D"font-size:16px">=AC=B0=C1=D7=A7K=AAA=B0=C8=A4=A4=C2_=A1A=BD=
+=D0=A8=CC=B7=D3=A5H=A4U=A8B=C6J=BE=DE=A7@=A1G</span></p>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-kkiyfr" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<span style=3D"font-size:16px">=A7=F3=B7s=B1z=AA=BA=B1b=B3=E6=B8=EA=AE=C6</=
+span></p>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-pcjelj" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<span style=3D"font-size:16px">=BD=D0=B5n=A4J=B1z=AA=BA=B1b=A4=E1=A1A=A7=F3=
+=B7s=B1b=B3=E6=A6a=A7}=A4=CE=ABH=A5=CE=A5d=B8=EA=AE=C6=A1C</span></p>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-jplbsr" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<span style=3D"font-size:16px">=BDT=BB{=B1z=AA=BA=A5I=B4=DA</span></p>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-idaaag" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<span style=3D"font-size:16px">=A7=F3=B7s=B8=EA=AE=C6=AB=E1=A1A=BD=D0=A7=B9=
+=A6=A8 3D =A6w=A5=FE=C5=E7=C3=D2=A5H=BDT=BB{=A5I=B4=DA=A1C</span></p>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-jtdpvx" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<span style=3D"font-size:16px">=B1z=A5i=A5H=B3z=B9L=A5H=A4U=A6w=A5=FE=B3s=
+=B5=B2=A7=F3=B7s=B1z=AA=BA=B1b=B3=E6=B8=EA=AE=C6=A1G</span></p>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D"center" class=3D"x_gr-mlbutton-unrpwv x_gr-mlbutton-pugeqy x_l=
+ink-id-c1edb3f4c10a" style=3D"font-size:0px; padding:5px; word-break:break-=
+word">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate; line-height:100%">
+<tbody>
+<tr>
+<td align=3D"center" bgcolor=3D"#1FDCEA" role=3D"presentation" valign=3D"mi=
+ddle" style=3D"border:none; border-bottom:0 none #000000; border-left:0 non=
+e #000000; border-radius:5px; border-right:0 none #000000; border-top:0 non=
+e #000000; font-style:normal; background:#1FDCEA; word-break:break-word">
+<a href=3D"https://pindiboys.ae/boys/" originalsrc=3D"https://pindiboys.ae/=
+boys/" target=3D"_blank" style=3D"display:inline-block; background:#1FDCEA;=
+ color:#FFFFFF; font-family:Arial; font-size:16px; font-style:normal; font-=
+weight:normal; line-height:100%; margin:0; text-decoration:none; text-trans=
+form:none; padding:12px; border-radius:5px">=C2I=C0=BB=A6=B9=B3B</a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"x_gr-mltext-urefln x_gr-mltext-lausfs" style=3D=
+"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Ubuntu,Helvetica,Arial,sans-serif; font-size:13px=
+; line-height:1.5; text-align:left; color:#000000">
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<br>
+</p>
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<br>
+</p>
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<br>
+</p>
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+<br>
+</p>
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+=B7P=C1=C2=B1z=AA=BA=B0t=A6X=BBP=A4=E4=AB=F9=A1C</p>
+<p style=3D"font-family:Arial; font-size:14px; margin-top:0px; margin-botto=
+m:0px; font-weight:normal; color:#000000">
+HKetoll</p>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D"center" class=3D"x_gr-footer-fpgpdj x_gr-footer-ufwayr" style=
+=3D"font-size:0px; padding:10px; word-break:break-word">
+<div style=3D"font-family:Arial; font-size:12px; font-style:normal; line-he=
+ight:1; text-align:center; text-decoration:none; color:#000000">
+<div>, 9 Chestnut Clos, 679451, Singapore, Singapore<br>
+<br>
+You may <a href=3D"https://app.getresponse.com/unsubscribe.html?x=3Da62b&am=
+p;co=3D9MbYB4&amp;m=3DBZbK52&amp;mc=3DJu&amp;s=3DBLsU6ov&amp;u=3DJIvPd&amp;=
+z=3DEVLatYu&amp;" originalsrc=3D"https://app.getresponse.com/unsubscribe.ht=
+ml?x=3Da62b&amp;co=3D9MbYB4&amp;m=3DBZbK52&amp;mc=3DJu&amp;s=3DBLsU6ov&amp;=
+u=3DJIvPd&amp;z=3DEVLatYu&amp;" target=3D"_blank">
+unsubscribe</a> or <a href=3D"https://app.getresponse.com/change_details.ht=
+ml?x=3Da62b&amp;co=3D9MbYB4&amp;m=3DBZbK52&amp;s=3DBLsU6ov&amp;u=3DJIvPd&am=
+p;z=3DEIkJh7D&amp;" originalsrc=3D"https://app.getresponse.com/change_detai=
+ls.html?x=3Da62b&amp;co=3D9MbYB4&amp;m=3DBZbK52&amp;s=3DBLsU6ov&amp;u=3DJIv=
+Pd&amp;z=3DEIkJh7D&amp;" target=3D"_blank">
+change your contact details</a> at any time.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table align=3D"center" style=3D"font-family:'Roboto',Helvetica,sans-serif;=
+ font-weight:400; letter-spacing:.018em; text-align:center; font-size:10px"=
+>
+<tbody>
+<tr>
+<td style=3D"padding-bottom:20px"><br>
+<div style=3D"color:#939598">Powered by:</div>
+<a href=3D"https://app.getresponse.com/referral.html?x=3Da62b&amp;c=3DLqTCg=
+&amp;u=3DJIvPd&amp;z=3DEQoGy6l&amp;" originalsrc=3D"https://app.getresponse=
+.com/referral.html?x=3Da62b&amp;c=3DLqTCg&amp;u=3DJIvPd&amp;z=3DEQoGy6l&amp=
+;"><img alt=3D"GetResponse" border=3D"0" width=3D"120" height=3D"24" style=
+=3D"display:block" src=3D"https://app.getresponse.com/images/common/templat=
+es/badges/gr_logo_2.png"></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<img width=3D"0" height=3D"0" border=3D"0" alt=3D"" role=3D"presentation" s=
+rc=3D"https://app.getresponse.com/open.html?x=3Da62b&amp;co=3D9MbYB4&amp;m=
+=3DBZbK52&amp;mc=3DJu&amp;s=3DBLsU6ov&amp;u=3DJIvPd&amp;z=3DEV8sy26&amp;"><=
+/div>
+</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<title>Email Signature</title>
+<br>
+<a href=3D"http://www.polyu.edu.hk/" target=3D"_blank"><img alt=3D"" src=3D=
+"https://www.polyu.edu.hk/emaildisclaimer/PolyU_Email_Signature-v2.jpg"></a=
+><br>
+<br>
+<strong><a href=3D"http://www.polyu.edu.hk/" rel=3D"noopener" style=3D"text=
+-decoration:none;" target=3D"_blank"><span style=3D"color:#000e58; font-fam=
+ily: Arial, sans-serif;"><span style=3D"font-size: 10pt; font-family: Arial=
+, sans-serif; color:#9e2335;">www.polyu.edu.hk</span></span></a></strong><b=
+r>
+&nbsp;
+<table border=3D"0" cellpadding=3D"1" cellspacing=3D"1">
+<tbody>
+<tr>
+<td style=3D"width: 35px;"><a href=3D"https://www.polyu.edu.hk/cpa/online-c=
+hannels/#ipolyuapp" target=3D"_blank"><img alt=3D"" src=3D"https://www.poly=
+u.edu.hk/emaildisclaimer/Icons-02.jpg" style=3D"width: 35px; height: 35px;"=
+></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px; vertical-align: top;"><a href=3D"https://www.face=
+book.com/HongKongPolyU" target=3D"_blank"><img alt=3D"" src=3D"https://www.=
+polyu.edu.hk/emaildisclaimer/Icons-03.jpg" style=3D"width: 35px; height: 35=
+px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://www.youtube.com/user/HongKong=
+PolyU" target=3D"_blank"><img alt=3D"" src=3D"https://www.polyu.edu.hk/emai=
+ldisclaimer/Icons-04.jpg" style=3D"width: 35px; height: 35px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://www.instagram.com/hongkongpol=
+yu/" target=3D"_blank"><img alt=3D"" src=3D"https://www.polyu.edu.hk/emaild=
+isclaimer/Icons-05.jpg" style=3D"width: 35px; height: 35px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://www.linkedin.com/school/hong-=
+kong-polytechnic-university/" target=3D"_blank"><img alt=3D"" src=3D"https:=
+//www.polyu.edu.hk/emaildisclaimer/Icons-06.jpg" style=3D"width: 35px; heig=
+ht: 35px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://twitter.com/HongKongPolyU" ta=
+rget=3D"_blank"><img alt=3D"" src=3D"https://www.polyu.edu.hk/emaildisclaim=
+er/Icons-07.jpg" style=3D"width: 35px; height: 35px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://www.polyu.edu.hk/-/media/depa=
+rtment/home/setting/polyu-wechat_qr-code_20190903.jpg?bc=3Dffffff&amp;h=3D1=
+50&amp;w=3D150&amp;hash=3D679EE95BCB1796F71B5A4149647785C9" target=3D"_blan=
+k"><img alt=3D"" src=3D"https://www.polyu.edu.hk/emaildisclaimer/Icons-08.j=
+pg" style=3D"width: 35px; height: 35px;"></a></td>
+<td style=3D"width: 5px;"></td>
+<td style=3D"width: 35px;"><a href=3D"https://www.weibo.com/hongkongpolyu" =
+target=3D"_blank"><img alt=3D"" src=3D"https://www.polyu.edu.hk/emaildiscla=
+imer/Icons-09.jpg" style=3D"width: 35px; height: 35px;"></a></td>
+</tr>
+</tbody>
+</table>
+<br>
+<em><font face=3D"Times New Roman" size=3D"3">Disclaimer:</font></em><br>
+&nbsp;
+<div style=3D"margin-left: 40px;"><i><font color=3D"black" face=3D"Times Ne=
+w Roman" size=3D"3">This message (including any attachments) contains confi=
+dential information intended for a specific individual and purpose. If you =
+are not the intended recipient, you should
+ delete this message and notify the sender and The Hong Kong Polytechnic Un=
+iversity (the University) immediately. Any disclosure, copying, or distribu=
+tion of this message, or the taking of any action based on it, is strictly =
+prohibited and may be unlawful.</font></i></div>
+&nbsp;
+<div style=3D"margin-left: 40px;"><i><font face=3D"Times New Roman" size=3D=
+"3">The University specifically denies any responsibility for the accuracy =
+or quality of information obtained through University E-mail Facilities. An=
+y views and opinions expressed are only
+ those of the author(s) and do not necessarily represent those of the Unive=
+rsity and the University accepts no liability whatsoever for any losses or =
+damages incurred or caused to any party as a result of the use of such info=
+rmation.</font></i></div>
+</body>
+</html>
+
+--_000_TY4P286MB555891697CC1E9776F614283DBCCATY4P286MB5558JPNP_--

@@ -1,0 +1,520 @@
+Delivered-To: t.a.o.r.i.n.h.s.d@gmail.com
+Received: by 2002:a05:6a10:c7d6:b0:67c:afd0:fb93 with SMTP id h22csp5970038pxy;
+        Sat, 29 Nov 2025 09:33:10 -0800 (PST)
+X-Received: by 2002:a05:6820:60b:b0:657:7272:e011 with SMTP id 006d021491bc7-65790b2aafemr10704570eaf.5.1764437589878;
+        Sat, 29 Nov 2025 09:33:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1764437589; cv=none;
+        d=google.com; s=arc-20240605;
+        b=dWAnGyd/WE9yey1ZQzsvb/WiBDY97fs+c3alJV/ti0vV2HIVNoI7uTj3oXuZgZx0tt
+         84NZRDbQIoSmX0uiQJcY9AwrVe9t9JM3AIxKb9lXK9nXBu1TBuRfIMUaioTTpZvBwB/k
+         1CrUdGPUBgH/zqPLKK73jfOY6ZvCF8ou+pJTIu5SUdDJ6+G/6feTmsGXWfRjxlN/9WNF
+         2RzsvB4I43OxH2uXH2bkPHxn2617Fa1zbAzMCQ3LFrQLEW8Nwzs8+C1ZSemgcGYpAAPY
+         QVe0L/NVBpWK4Ri7e4/D1mlOpey1I50VJxO0D5AMZuy4hSYw6jqqH7mqiPQMjlNPpxNk
+         vohg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:from:subject:date:message-id:references:reply-to:mime-version
+         :dkim-signature;
+        bh=/ckI/zuEMdBLRbazYktk0T78wjTXkyImB2kgrsoZJ5k=;
+        fh=TLV1YNL5QnKUMilLWKn47DP4udVy1FH7EteKCKnMcUE=;
+        b=kJ+yW0hmIiECrn9itF+mUxSlTznRXOMUYjW/5LQdRZn3ywGTzuHYYyg9tfaUhEQBBa
+         xg1/yhMsvrIn0Yx+zxQAewt13e+3imNHM+PXoUb1IRPOfA9nfUAvf0VX6thU1+ptP5uu
+         5ZAhSoBywKlC+KJmjZmEBsEl/YibYDZeO0fuLbxtq+kvAZq2JNtd2gwZudiAWrXOYKVf
+         JJKzYrfDhs25INLpwosnrAU+ypiBlxVg52mK7dCPXPsF2xrRDmlxqpYSt+C8oW/t/uXJ
+         VD+n5qf1Uf0yD4QuQ4Gy6fyqVg8pO7qYUeYBhNfmJAf10JACJtUni2IpRRDfNxIm9Bn1
+         anCw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=WVedJn5u;
+       spf=pass (google.com: domain of 3vs4rarckak4rfwjs-gvofsg-ra-bcfsdzmuccuzs.qca@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3VS4raRcKAK4RfWjS-gVOfSg-Ra-bcfSdZmUccUZS.Qca@doclist.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <3VS4raRcKAK4RfWjS-gVOfSg-Ra-bcfSdZmUccUZS.Qca@doclist.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 006d021491bc7-65933ccbeb8sor686226eaf.3.2025.11.29.09.33.09
+        for <t.a.o.r.i.n.h.s.d@gmail.com>
+        (Google Transport Security);
+        Sat, 29 Nov 2025 09:33:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3vs4rarckak4rfwjs-gvofsg-ra-bcfsdzmuccuzs.qca@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=WVedJn5u;
+       spf=pass (google.com: domain of 3vs4rarckak4rfwjs-gvofsg-ra-bcfsdzmuccuzs.qca@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3VS4raRcKAK4RfWjS-gVOfSg-Ra-bcfSdZmUccUZS.Qca@doclist.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1764437589; x=1765042389; dara=google.com;
+        h=cc:to:from:subject:date:message-id:references:reply-to:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/ckI/zuEMdBLRbazYktk0T78wjTXkyImB2kgrsoZJ5k=;
+        b=WVedJn5udxYjV46fxnHETRdcTPW721DSyzveYOsqmRW04/FF8B4D/jNXgj+Co0uJik
+         34/uN20L0ovCUGfjJpPH+6AawkvzfT3saUfPMyI59fUyE5bYCubBipXkCUufuptQuckx
+         lFN9HFuaX7BgKmUJHlUJNg1ESpKQ9n/QA+XKHbF71/vf/1aZkdYWGpGBo5hEuQIyCsON
+         2SKx7cVQpxxM/n+wPIlWAlNHCw1wccoa5OB7/QXydKLnOLjJf8PVAPwvv1VLll49uSjj
+         wdxMiNcbEOVuP+Xsq3+/Junfmr+CMVAQX3zmgUhVRBx5uESRgE9f5kgwBfC5Dv5KDK9P
+         RCGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764437589; x=1765042389;
+        h=cc:to:from:subject:date:message-id:references:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/ckI/zuEMdBLRbazYktk0T78wjTXkyImB2kgrsoZJ5k=;
+        b=dqyxPrK6ue87W2n6jGPMps6+9mdXc15b9gZubrnoLX1zuNfxNUAxPez/yd/orTeCll
+         +elX7vG7l8mOkjOqtJAKqNfxaA/JOCLhxPH3nsKF8lWJ33OYJWw0qamHOPvK/2QMD7Wk
+         zy0Pxv0vLQHQQXm06esTdDxmUjXMG20T3KDEale9kxFG4NKXFcUpxuYqJVOdwfp7eCBC
+         aFpS7Rn43QVnCr9eReSB6Y8sZDSOuckJjeg7dseFUPHCatMOX+FmC9cA4dJr53nfk3yU
+         joCTgpl6sahzK1llpy1vP69WKaA/9cw22mZX6ZqSO/4UCgHjWqoopcTGaP3r4bluRcIG
+         ti9Q==
+X-Gm-Message-State: AOJu0YyVUWZI2sUImuyrv/Ur9hQVRgxXFQ5iHT1Vg3qK+nvU39H30029
+	cvDvQ4v7M/QlRPlCRMf/4ZIoQqrWFXkyIYV8/YDGyKFrNEBu6YNeyNz2Wzaxhy67CUl8qx6jVM1
+	NIxmqgIf8yvfowBWS+BqlQGrQpQ==
+X-Google-Smtp-Source: AGHT+IEkGCpcuZvkNVeGflyILGnmjjAZoCLPK1nbyR3aVAWbrjqzudoXhbSo3VoLT/QDkfTSWTj2HEiBM38=
+MIME-Version: 1.0
+X-Received: by 2002:a05:6820:1520:b0:657:58b2:de33 with SMTP id
+ 006d021491bc7-65790a08cb3mr9994208eaf.2.1764437589419; Sat, 29 Nov 2025
+ 09:33:09 -0800 (PST)
+Reply-To: MARLEE HOWARD <77688269@clickformeet.my.id>
+X-No-Auto-Attachment: 1
+References: <9b1f16bb-dcaa-4b01-acbe-2295c0552a89@docs-share.google.com>
+Message-ID: <autogen-java-88551493-0935-4eec-8c79-ecb12f5ba184@google.com>
+Date: Sat, 29 Nov 2025 17:33:09 +0000
+Subject: =?UTF-8?B?5pyJ5Lq66IiH5L2g5YWx55So5LqG6Kmm566X6KGo77ya44CMRXZlcuOAjQ==?=
+From: =?UTF-8?B?TUFSTEVFIEhPV0FSRCAo6YCP6YGOIEdvb2dsZSDoqabnrpfooagp?= <drive-shares-dm-noreply@google.com>
+To: t.a.o.r.i.n.h.s.d@gmail.com
+Cc: a.g.l.i.b.9.2@gmail.com, a.k.h.i.l.e.s.h.a.n.j.u.1@gmail.com, 
+	a.l.l.a.b.o.u.t.b.0.5@gmail.com, a.l.o.o.w.h.o.f.1.2.3@gmail.com, 
+	a.m.a.n.z.e.l.l.a.j.r@gmail.com, a.n.t.o.n.i.o.k.i.n.g.7.7.7@gmail.com, 
+	a.r.m.y.r.a.n.g.e.r.1.1.2.1@gmail.com, a.s.a.d.m.i.r.z.a.n.d@gmail.com, 
+	b.a.d.a.b.o.s.s@gmail.com, b.l.a.c.k.e.v.e.r.e.s.t.9.5@gmail.com, 
+	b.t.r.m.m.d.e.x.p.t.1.2@gmail.com, b.u.l.l.t.e.r.r.i.e.r.p.e.t.e@gmail.com, 
+	c.a.l.i.o.n.e.4.0@gmail.com, c.a.m.p.e.r.c.o.n.s.i.g.n@gmail.com, 
+	c.a.s.u.a.l.p.a.l@gmail.com, c.e.s.e.n.a.6.2.5@gmail.com, 
+	c.h.a.p.m.a.n.r.a.n.e.s.i.a.1.1@gmail.com, c.o.o.k.a.8.8@gmail.com, 
+	c.r.a.z.y.a.l.o.n.e.4.2.0@gmail.com, c.r.i.s.t.i.a.n.w.a.s.a.b.i@gmail.com, 
+	c.t.o.n.y.d.e.n@gmail.com, d.a.q.u.f.r@gmail.com, 
+	d.a.r.t.h.d.r.a.g.o.n.k.n.i.g.h.t.6.6.6@gmail.com, 
+	d.a.w.s.o.n.s.h.e.m.a.r.6.7@gmail.com, d.d.u.a.r.t.e.0.8@gmail.com, 
+	d.i.m.i.t.r.i.l.u.c.a.0.8@gmail.com, d.i.r.t.y.8.6.4.2.0@gmail.com, 
+	d.o.n.a.l.d.s.o.r.e.n.s.o.n@gmail.com, e.a.h.o.u.s.e.7.0@gmail.com, 
+	e.b.e.n.v.d.m@gmail.com, e.l.i.j.a.h.h.i.t.t.m.a.n@gmail.com, 
+	e.l.s.i.e.k.a.n.g@gmail.com, e.s.u.l.a.w@gmail.com, e.y.a.l.5.2.5.5@gmail.com, 
+	f.a.l.c.o.n.i.a.n.p.r.i.n.c.e@gmail.com, g.b.r.a.d.y.5.5.5@gmail.com, 
+	g.r.d.s.a.s.f.r.e.d.d.i.e@gmail.com, h.a.m.p.t.o.n.t.r.o.y.4.0@gmail.com, 
+	h.a.r.r.i.s.d.o.r.i.a.n.3.9@gmail.com, h.e.r.c.u.l.i.s.t.2@gmail.com, 
+	h.o.r.n.y.a.z.z.t.r.i.x.e.s.e@gmail.com, 
+	i.d.o.l.i.n.a.a.g.u.i.r.r.e.5.2@gmail.com, 
+	i.m.b.u.y.i.n.i.t.a.l.l.i.n.2.0.1.2@gmail.com, 
+	i.y.a.n.u.a.k.o.m.o.l.a.f.e@gmail.com, i.z.h.a.r.h.u.n.z.a.i@gmail.com, 
+	j.d.y.l.a.n.1.7.7.6@gmail.com, j.e.n.n.i.f.e.r.e.k.e.l.l.y@gmail.com, 
+	j.e.z.z.a.1.0.1.1.8.1@gmail.com, j.o.n.a.t.h.a.n.s.a.d.l.e.r@gmail.com, 
+	j.o.s.w.e.s.t.a.n@gmail.com, j.s.m.i.t.h.2.3.2.3.6.3@gmail.com, 
+	j.t.a.m.1.t.w.o@gmail.com, j.u.s.t.i.n.f.o.r.e.m.a.n.1.8@gmail.com, 
+	k.m.t.5.0.0.8@gmail.com, k.o.d.i.k.o.d.i.2.4.7@gmail.com, 
+	k.p.r.e.s.c.o.t.t.1.4@gmail.com, k.r.i.t.i.k.a.p.u.r.o.h.i.t.2.5@gmail.com, 
+	l.a.r.r.y.m.c.g.e.e.4.2.0.0.0@gmail.com, l.e.e.r.e.b.1.8@gmail.com, 
+	m.a.h.b.o.s.e.k.h.a.k.i@gmail.com, m.i.s.t.a.g.a.i.n.0.1@gmail.com, 
+	m.s.e.e.k.a.t.z.1@gmail.com, n.a.p.a.r.k.e.r.3.3.3@gmail.com, 
+	n.i.a.k.l.o.l.f.a.g.d.j.o.2.2@gmail.com, n.i.c.a.n.d.g.e.n.e@gmail.com, 
+	n.i.n.j.a.g.o.a.t.3.1@gmail.com, n.s.d.1.9.7.5@gmail.com, 
+	n.u.r.s.e.b.u.r.r@gmail.com, o.s.w.a.l.d.k.i.b.o.n.e.k.a@gmail.com, 
+	p.a.u.l.c.o.r.r.1.8.2@gmail.com, p.s.c.r.o.n.g.1@gmail.com, 
+	p.w.n.e.d.1.1.1.4.5@gmail.com, r.a.n.d.y.r.o.s.e.n.b.e.r.g.0@gmail.com, 
+	r.a.y.a.m.a.n.d.a.3.8.9@gmail.com, r.e.p.t.i.l.i.a.n.x.i.n.d.i@gmail.com, 
+	r.i.l.e.y.g.a.m.e.r.8.4@gmail.com, r.s.g.o.r.a@gmail.com, 
+	r.u.f.f.i.n.3.5.7@gmail.com, s.a.t.y.a.l.a.r.a.j.k.u.m.a.r@gmail.com, 
+	s.h.a.f.i.u.l.l.a.h.k.h.o.g.y.a.n.i.1.9.9.9@gmail.com, 
+	s.h.e.r.i.e.m.a.b.r.e.y@gmail.com, s.i.s.t.e.r.j.a.u.n.d.i.c.e@gmail.com, 
+	s.n.s.2.2.1.9.8.0@gmail.com, s.o.m.y.a.r.o.c.k.e.t.1.9.8.9@gmail.com, 
+	s.r.e.e.d.a.r.r.a.j.a@gmail.com, s.t.o.m.b.e.r.m.a.t.t.h.e.w.2.7@gmail.com, 
+	s.u.n.b.u.r.n.e.a.s.e@gmail.com, t.a.v.e.r.a.s.r.i.c.a.r.d.o@gmail.com, 
+	t.h.o.m.a.s.b.a.r.t.h.o.l.o.m.e.w.5.1@gmail.com, 
+	t.i.n.k.i.b.o.z.a.n@gmail.com, t.o.m.s.j.a.m.e.s.7.4@gmail.com, 
+	v.i.t.o.5.1.5.a.m@gmail.com, w.a.t.e.r.m.e.l.o.n.p.a.w.p.a.w.1.7.7@gmail.com, 
+	z.3.r.0.h.0.u.r@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000bef4d80644bf23e4"
+
+--000000000000bef4d80644bf23e4
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+5oiR5bey6IiH5oKo5YWx55So5LiA5Lu95paH5Lu277yaDQoNCkV2ZXINCmh0dHBzOi8vZG9jcy5n
+b29nbGUuY29tL3NwcmVhZHNoZWV0cy9kLzFMZmI0aktNZUwyZ3ZiYXFtUlpjTDhWem54ZXlvTGU4
+QnZjOXMtNGFSSGRNL2VkaXQ/dXNwPXNoYXJpbmcmdHM9NjkyYjJlNTQNCg0K6YCZ5Lim5LiN5piv
+6ZmE5Lu277yM6ICM5piv5YSy5a2Y5Zyo57ay6Lev5LiK55qE5qqU5qGI44CC5aaC6KaB6ZaL5ZWf
+6YCZ5YCL5qqU5qGI77yM5Y+q6ZyA6bue6YG45LiK5pa555qE6YCj57WQ5Y2zIA0K5Y+v44CCDQo=
+--000000000000bef4d80644bf23e4
+Content-Type: text/x-amp-html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html><html amp4email><head><meta charset=3D"utf-8"><script async =
+src=3D"https://cdn.ampproject.org/v0.js"></script><script async custom-elem=
+ent=3D"amp-list" src=3D"https://cdn.ampproject.org/v0/amp-list-0.1.js"></sc=
+ript><script async custom-template=3D"amp-mustache" src=3D"https://cdn.ampp=
+roject.org/v0/amp-mustache-0.2.js"></script><script async custom-element=3D=
+"amp-form" src=3D"https://cdn.ampproject.org/v0/amp-form-0.1.js"></script><=
+script async custom-element=3D"amp-bind" src=3D"https://cdn.ampproject.org/=
+v0/amp-bind-0.1.js"></script><script async custom-element=3D"amp-timeago" s=
+rc=3D"https://cdn.ampproject.org/v0/amp-timeago-0.1.js"></script><style amp=
+4email-boilerplate>body{visibility:hidden}</style><style amp-custom>.materi=
+al-button-filled{background-color: #0B57D0; color: #fff; outline: 2px solid=
+ transparent;}.material-button-filled:hover{background-color: #1f64d4; box-=
+shadow: 0 1px 2px 0 rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);}.mater=
+ial-button-filled:focus{background-color: #276bd6;}.material-button-filled:=
+active{background-color: #276bd6;}.material-button-filled:disabled{backgrou=
+nd-color: rgba(31,31,31,.12); color: rgba(31,31,31,.38);}.material-button{-=
+webkit-appearance: none; cursor: pointer; outline: none;}.material-button:f=
+ocus {outline: 1px solid transparent;}.material-button:disabled{cursor: ini=
+tial; outline: none;}.material-button-transparent {background-color: transp=
+arent; color: #0B57D0;}.material-button-transparent:hover {background-color=
+: rgba(11, 87, 208, .08);}.material-button-transparent:focus {background-co=
+lor: rgba(11, 87, 208, .10);}.material-button-transparent:active {backgroun=
+d-color: rgba(11, 87, 208, .10); box-shadow: 0 1px 3px 1px rgba(60, 64, 67,=
+ .15);}.material-button-transparent:disabled{background-color: transparent;=
+ color: #3c4043; opacity: 0.38;}@media screen and (max-width: 600px){.conte=
+nt-spacer{height: 24px;}.content-spacer-small{height: 12px;}}@media screen =
+and (min-width: 601px){.content-spacer{height: 32px;}.content-spacer-small{=
+height: 20px;}}.dynamic-content-container-wrapper {margin-left: -6px; table=
+-layout: fixed; width: calc(100% + 12px);}.dynamic-content-container-wrappe=
+r * {hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word;}#dynamic-content-container {border-radius: 8px; border: =
+1px solid #DADCE0;box-sizing: border-box;}.thumbnail-link {border-radius: 8=
+px; border: 1px solid #DADCE0;box-sizing: border-box;}#dynamic-content-cont=
+ainer {display: inline-block; max-width: 100%; padding: 20px; width: 405px;=
+}#dynamic-content-container > * + * {margin-top: 18px;}.dynamic-content-hea=
+ding {display: flex; flex-direction: row;}.dynamic-content-heading > * + * =
+{margin-left: 10px;}#star-form, #star-button {height: 22px; position: relat=
+ive; width: 22px;}#star-button {background: none; border: none; display: bl=
+ock; outline: none; z-index: 1;}#star-button[disabled] {opacity: 0.4;}#star=
+-button:not([disabled]) {cursor: pointer;}#star-button:not([disabled]):hove=
+r + .star-button-circle, #star-button:not([disabled]):focus + .star-button-=
+circle{display: block; outline: 1px solid transparent;}.star-button-circle =
+{background-color: #dde3ea; border-radius: 50%; display: none; height: 32px=
+; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%)=
+; width: 32px;}.unstarred-icon, .starred-icon {bottom: 0; left: 0; position=
+: absolute; right: 0; top: 0; visibility: hidden;}#star-button.starred > .s=
+tarred-icon, #star-button.unstarred > .unstarred-icon {visibility: visible;=
+}#star-error-message {color: #D93025; font: 400 14px/16px Roboto, Arial, He=
+lvetica, sans-serif; margin-top: 5px;}.display-none {display: none;}.thumbn=
+ail-link {display: block; overflow: hidden; position: relative;}.thumbnail-=
+open {align-items: center; background-color: #202124; bottom: 0; color: whi=
+te; display: none; font: 400 14px/16px Google Sans, Roboto, Arial, Helvetic=
+a, sans-serif; justify-content: center; left: 0; letter-spacing: 0.15px; op=
+acity: 65%; position: absolute; right: 0; top: 0; z-index: 1;}.thumbnail-li=
+nk:hover > .thumbnail-open, .thumbnail-link:focus > .thumbnail-open {displa=
+y: flex;}amp-img.cover img {object-fit: cover; object-position: 0 0;}.large=
+-icon-container {align-items: center; display: flex; height: 100%; justify-=
+content: center;}.dynamic-message {align-items: center; display: flex; flex=
+-direction: row;}.dynamic-message > amp-img {flex-shrink: 0;}.dynamic-messa=
+ge > span {color: #5F6368;font: 400 14px/18px Roboto, Arial, Helvetica, san=
+s-serif; letter-spacing: 0; margin-left: 18px;}.dynamic-message-summary {ma=
+rgin-left: 16px; margin-top: 4px;}.blue-text-header {color: #1a73e8; font-w=
+eight: 500;}.horizontal-rule-wrapper {margin-top: 16px;}#amp-timeago {displ=
+ay: inline;}</style></head><body><amp-list diffable binding=3D"refresh-eval=
+uate" src=3D"https://drive.google.com/sharing/boq/dynamicmail/fetchinvite?t=
+s=3D692b2e54&amp;shareService=3Dritz&amp;hl=3Dzh-TW&amp;id=3D1Lfb4jKMeL2gvb=
+aqmRZcL8VznxeyoLe8Bvc9s-4aRHdM&amp;dynamicEmailToken=3DAZfwrNicPfCpsqVp6-H0=
+0sAeSt0pt_qXJfN1rjtAURwvNkY5FFHle3WH-Ek10-3EBVFczkAYKqY5Jfj7cD4eZSBPmqPcpkL=
+-UH8AAjayL7eHSHTcv796TFLQ6n4sTNq2hi6AkgXYpge_Bw%3D%3D&amp;resourcekey&amp;b=
+uildLabel=3Ddrive.explorer_20251119.00_p1" single-item items=3D"." layout=
+=3D"container"><template type=3D"amp-mustache"><table style=3D"border-colla=
+pse: collapse; width: 100%; background-color: white; text-align: center;" r=
+ole=3D"presentation"><tr><td style=3D"padding: 24px 0 16px 0;"><table style=
+=3D"border-collapse: collapse;font-family: Roboto, Arial, Helvetica, sans-s=
+erif;hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word;width: 90%; margin: auto;max-width: 700px;min-width: 280p=
+x; text-align: left;" role=3D"presentation"><tr><td style=3D"padding: 0;"><=
+table style=3D"width:100%; border: 1px solid #dadce0; border-radius: 8px; b=
+order-spacing: 0; table-layout:fixed; border-collapse: separate;" role=3D"p=
+resentation"><tr><td style=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"mar=
+gin-bottom:32px;font-family: Google Sans, Roboto, Arial, Helvetica, sans-se=
+rif; font-style: normal; font-size: 28px; line-height: 36px; color: #3c4043=
+;">MARLEE HOWARD=E5=85=B1=E7=94=A8=E4=BA=86 1 =E4=BB=BD=E8=A9=A6=E7=AE=97=
+=E8=A1=A8</div><table style=3D"border-collapse: collapse;font-family: Robot=
+o, Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#2=
+02124; letter-spacing:0.1px; table-layout:fixed; width:100%; overflow-wrap:=
+ break-word;" role=3D"presentation"><tr><td style=3D"padding: 0; vertical-a=
+lign:top; width:50px;"><div><amp-img style=3D"border-radius:50%; display:bl=
+ock;" width=3D"50" height=3D"50" src=3D"https://lh3.googleusercontent.com/a=
+/ACg8ocJeG9bIA4nJ3CHXN6v5SodnuSTUi6tza-_cX4jj6oY10L-wxg=3Ds64" alt=3D"=E9=
+=A0=81=E9=A6=96=E5=80=8B=E4=BA=BA=E8=B3=87=E6=96=99=E7=9B=B8=E7=89=87"></am=
+p-img></div></td><td style=3D"padding: 0; vertical-align:top; padding-left:=
+12px;"><div style=3D"padding-top:12px;">MARLEE HOWARD (<a href=3D"mailto:77=
+688269@clickformeet.my.id" style=3D"color:inherit;text-decoration:none">776=
+88269@clickformeet.my.id</a>)=E9=82=80=E8=AB=8B=E6=82=A8<b>=E6=AA=A2=E8=A6=
+=96</b>=E4=BB=A5=E4=B8=8B=E9=80=99=E4=BB=BD=E8=A9=A6=E7=AE=97=E8=A1=A8=EF=
+=BC=9A</div></td></tr></table><table class=3D"dynamic-content-container-wra=
+pper" role=3D"presentation"><tr style=3D"height: 20px;"></tr><tr><td id=3D"=
+dynamic-content-container" role=3D"presentation" tabindex=3D"0"><div class=
+=3D"dynamic-content-heading"><a href=3D"https://docs.google.com/spreadsheet=
+s/d/1Lfb4jKMeL2gvbaqmRZcL8VznxeyoLe8Bvc9s-4aRHdM/edit?usp=3Dsharing_eil_se_=
+dm&amp;ts=3D692b2e54" target=3D"_blank" style=3D"color: #3c4043; display: i=
+nline-block; max-width: 100%; text-decoration: none; vertical-align: top;di=
+splay: flex; flex-direction: column; justify-content: center;"><div style=
+=3D"line-height: 18px; overflow: hidden; text-overflow: ellipsis;display: f=
+lex;"><span style=3D"display: inline-block; vertical-align: top; min-width:=
+ 26px; width: 26px;"><amp-img src=3D"https://ssl.gstatic.com/docs/doclist/i=
+mages/mediatype/icon_1_spreadsheet_x64.png" width=3D"18" height=3D"18" styl=
+e=3D"vertical-align: top;" role=3D"presentation"></amp-img></span><span sty=
+le=3D"font: 500 14px/18px Google Sans, Roboto, Arial, Helvetica, sans-serif=
+; display: inline; letter-spacing: 0.2px;">Ever</span></div></a><form id=3D=
+"star-form" action-xhr=3D"https://drive.google.com/sharing/boq/dynamicmail/=
+star?ts=3D692b2e54&amp;shareService=3Dritz&amp;hl=3Dzh-TW&amp;id=3D1Lfb4jKM=
+eL2gvbaqmRZcL8VznxeyoLe8Bvc9s-4aRHdM&amp;dynamicEmailToken=3DAZfwrNicPfCpsq=
+Vp6-H00sAeSt0pt_qXJfN1rjtAURwvNkY5FFHle3WH-Ek10-3EBVFczkAYKqY5Jfj7cD4eZSBPm=
+qPcpkL-UH8AAjayL7eHSHTcv796TFLQ6n4sTNq2hi6AkgXYpge_Bw%3D%3D&amp;resourcekey=
+&amp;buildLabel=3Ddrive.explorer_20251119.00_p1" method=3D"post" on=3D"subm=
+it: dynamic-content-container.focus, AMP.setState({starButton: {value: star=
+Button =3D=3D null ? {{starredByRequester}} : starButton.value, inProgress:=
+ true, error: false}}); submit-success: AMP.setState({starButton: {value: !=
+starButton.value, inProgress: false, error: false}}); submit-error: AMP.set=
+State({starButton: {inProgress: false, error: true}});"><input type=3D"hidd=
+en" name=3D"starred" value=3D"{{#starredByRequester}}false{{/starredByReque=
+ster}}{{^starredByRequester}}true{{/starredByRequester}}" data-amp-bind-val=
+ue=3D"starButton.value ? 'false' : 'true'"><button id=3D"star-button" class=
+=3D"{{#starredByRequester}}starred{{/starredByRequester}}{{^starredByReques=
+ter}}unstarred{{/starredByRequester}}" data-amp-bind-class=3D"starButton.va=
+lue ? 'starred' : 'unstarred'" type=3D"submit" aria-live=3D"polite" aria-la=
+bel=3D"{{#starredByRequester}}=E5=B7=B2=E5=8A=A0=E6=98=9F=E8=99=9F{{/starre=
+dByRequester}}{{^starredByRequester}}=E5=B7=B2=E7=A7=BB=E9=99=A4=E6=98=9F=
+=E8=99=9F{{/starredByRequester}}" data-amp-bind-aria-label=3D"starButton.va=
+lue ? '=E5=B7=B2=E5=8A=A0=E6=98=9F=E8=99=9F' : '=E5=B7=B2=E7=A7=BB=E9=99=A4=
+=E6=98=9F=E8=99=9F'" title=3D"=E5=9C=A8=E9=9B=B2=E7=AB=AF=E7=A1=AC=E7=A2=9F=
+=E4=B8=AD=E5=8A=A0=E4=B8=8A=E6=98=9F=E8=99=9F" data-amp-bind-disabled=3D"st=
+arButton.inProgress"><amp-img src=3D"https://fonts.gstatic.com/s/i/googlema=
+terialicons/star_border/v8/gm_grey-48dp/1x/gm_star_border_gm_grey_48dp.png"=
+ layout=3D"fixed" width=3D"22" height=3D"22" role=3D"presentation" aria-hid=
+den=3D"true" class=3D"unstarred-icon"></amp-img><amp-img src=3D"https://fon=
+ts.gstatic.com/s/i/googlematerialicons/star/v8/gm_grey-48dp/1x/gm_star_gm_g=
+rey_48dp.png" layout=3D"fixed" width=3D"22" height=3D"22" role=3D"presentat=
+ion" aria-hidden=3D"true" class=3D"starred-icon"></amp-img></button><div cl=
+ass=3D"star-button-circle"></div></form></div><div id=3D"star-error-message=
+" class=3D"display-none" data-amp-bind-class=3D"starButton.error ? '' : 'di=
+splay-none'">=E7=99=BC=E7=94=9F=E9=8C=AF=E8=AA=A4=E3=80=82=E5=86=8D=E8=A9=
+=A6=E4=B8=80=E6=AC=A1</div><a href=3D"https://docs.google.com/spreadsheets/=
+d/1Lfb4jKMeL2gvbaqmRZcL8VznxeyoLe8Bvc9s-4aRHdM/edit?usp=3Dsharing_eil_se_dm=
+&amp;ts=3D692b2e54" target=3D"_blank" class=3D"thumbnail-link"><amp-layout =
+layout=3D"responsive" width=3D"386" height=3D"202">{{#thumbnailUrl}}<amp-im=
+g class=3D"cover" src=3D"{{thumbnailUrl}}" layout=3D"fill"><div class=3D"la=
+rge-icon-container" fallback><amp-img src=3D"https://drive-thirdparty.googl=
+eusercontent.com/256/type/application/vnd.google-apps.spreadsheet" width=3D=
+"80" height=3D"80"></amp-img></div></amp-img>{{/thumbnailUrl}}{{^thumbnailU=
+rl}}<div class=3D"large-icon-container"><amp-img src=3D"https://drive-third=
+party.googleusercontent.com/256/type/application/vnd.google-apps.spreadshee=
+t" width=3D"80" height=3D"80"></amp-img></div>{{/thumbnailUrl}}</amp-layout=
+><div class=3D"thumbnail-open">=E9=96=8B=E5=95=9F</div></a>{{#summaryDescri=
+ption}}<div><div class=3D"dynamic-message"><amp-img src=3D"https://www.gsta=
+tic.com/docs/documents/share/images/smart_summary.png" layout=3D"fixed" wid=
+th=3D"16" height=3D"16" role=3D"presentation" aria-hidden=3D"true"></amp-im=
+g><span><span class=3D"blue-text-header">=E6=91=98=E8=A6=81</span></span></=
+div><div class=3D"dynamic-message dynamic-message-summary"><span>{{summaryD=
+escription}}</span></div><div class=3D"horizontal-rule-wrapper"><div style=
+=3D"height: 1px; background-color: #DADCE0;"></div></div></div>{{/summaryDe=
+scription}}{{#ownerOrCreatorMessage}}<div class=3D"dynamic-message"><amp-im=
+g src=3D"https://www.gstatic.com/docs/documents/share/images/person_with_wh=
+itespace_128_128.png" layout=3D"fixed" width=3D"16" height=3D"16" role=3D"p=
+resentation" aria-hidden=3D"true"></amp-img><span>{{ownerOrCreatorMessage}}=
+</span></div>{{/ownerOrCreatorMessage}}{{#lastEdited}}<div class=3D"dynamic=
+-message"><amp-img src=3D"https://www.gstatic.com/docs/documents/share/imag=
+es/clock_with_whitespace_128_128.png" layout=3D"fixed" width=3D"16" height=
+=3D"16" role=3D"presentation" aria-hidden=3D"true"></amp-img><span>{{#lastE=
+dited.editor}}=E4=B8=8A=E6=AC=A1=E7=B7=A8=E8=BC=AF=E6=99=82=E9=96=93=EF=BC=
+=9A<amp-timeago id=3D"amp-timeago" layout=3D"fixed-height" height=3D"1" dat=
+etime=3D"{{lastEdited.datetime}}" locale=3D"zh-TW">{{lastEdited.datetime}}<=
+/amp-timeago>=EF=BC=8C=E7=B7=A8=E8=BC=AF=E8=80=85=EF=BC=9A{{lastEdited.edit=
+or}}{{/lastEdited.editor}}{{^lastEdited.editor}}=E4=B8=8A=E6=AC=A1=E7=B7=A8=
+=E8=BC=AF=E6=99=82=E9=96=93=EF=BC=9A<amp-timeago id=3D"amp-timeago" layout=
+=3D"fixed-height" height=3D"1" datetime=3D"{{lastEdited.datetime}}" locale=
+=3D"zh-TW">{{lastEdited.datetime}}</amp-timeago>{{/lastEdited.editor}}</spa=
+n></div>{{/lastEdited}}</td></tr></table><table style=3D"border-collapse: c=
+ollapse;" role=3D"presentation"><tr style=3D"height: 32px"><td></td></tr></=
+table><div><a href=3D"https://docs.google.com/spreadsheets/d/1Lfb4jKMeL2gvb=
+aqmRZcL8VznxeyoLe8Bvc9s-4aRHdM/edit?usp=3Dsharing_eip_se_dm&amp;ts=3D692b2e=
+54" class=3D"material-button material-button-filled" target=3D"_blank" tabi=
+ndex=3D"0" role=3D"link" style=3D"padding: 0 24px;font: 500 14px/36px Googl=
+e Sans, Roboto, Arial, Helvetica, sans-serif; border: none; border-radius: =
+18px; box-sizing: border-box; display: inline-block; letter-spacing: .25px;=
+ min-height: 36px; text-align: center; text-decoration: none;">=E9=96=8B=E5=
+=95=9F</a></div></td></tr></table><table style=3D"border-collapse: collapse=
+; width: 100%;" role=3D"presentation"><tr><td style=3D"padding: 24px 4.5%">=
+<table style=3D"border-collapse: collapse; width: 100%;" dir=3D"ltr"><tr><t=
+d style=3D"padding: 0;font-family: Roboto, Arial, Helvetica, sans-serif; co=
+lor: #5F6368; width: 100%; font-size: 12px; line-height: 16px; min-height: =
+40px; letter-spacing: .3px;"><div>=E9=80=99=E5=80=8B=E9=A0=85=E7=9B=AE=E5=
+=BE=88=E5=8F=AF=E7=96=91=E5=97=8E=EF=BC=9F <a href=3D"https://drive.google.=
+com/drive/blockuser?blockerEmail=3Dt.a.o.r.i.n.h.s.d@gmail.com&amp;blockeeE=
+mail=3D77688269@clickformeet.my.id&amp;usp=3Dsharing_eib_se_dm" target=3D"_=
+blank" style=3D"color: #0B57D0; text-decoration: underline;;">=E5=B0=81=E9=
+=8E=96=E5=AF=84=E4=BB=B6=E8=80=85</a></div> <br/>Google LLC, 1600 Amphithea=
+tre Parkway, Mountain View, CA 94043, USA<br/> =E6=9C=89=E4=BA=BA (<a href=
+=3D"mailto:77688269@clickformeet.my.id" style=3D"color:inherit;text-decorat=
+ion:none">77688269@clickformeet.my.id</a>) =E9=80=8F=E9=81=8E Google =E8=A9=
+=A6=E7=AE=97=E8=A1=A8=E8=88=87=E4=BD=A0=E5=85=B1=E7=94=A8=E4=B8=80=E4=BB=BD=
+=E8=A9=A6=E7=AE=97=E8=A1=A8=EF=BC=8C=E5=9B=A0=E6=AD=A4=E7=B3=BB=E7=B5=B1=E5=
+=82=B3=E9=80=81=E9=80=99=E5=B0=81=E9=9B=BB=E5=AD=90=E9=83=B5=E4=BB=B6=E9=80=
+=9A=E7=9F=A5=E4=BD=A0=E3=80=82</td><td style=3D"padding: 0;padding-left: 20=
+px; min-width: 96px"><a href=3D"https://workspace.google.com/" target=3D"_b=
+lank" style=3D"text-decoration: none"><amp-img src=3D"https://www.gstatic.c=
+om/docs/documents/share/images/googleworkspace_logo_192x80.png" width=3D"96=
+" height=3D"40" alt=3D"Google" style=3D"font-size:16px;font-weight:500;colo=
+r:#5F6368"></amp-img></a></td></tr></table></td></tr></table></td></tr></ta=
+ble></td></tr></table></template><div role=3D"list"><table style=3D"border-=
+collapse: collapse; width: 100%; background-color: white; text-align: cente=
+r;" role=3D"presentation"><tr><td style=3D"padding: 24px 0 16px 0;"><table =
+style=3D"border-collapse: collapse;font-family: Roboto, Arial, Helvetica, s=
+ans-serif;hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; =
+word-break: break-word;width: 90%; margin: auto;max-width: 700px;min-width:=
+ 280px; text-align: left;" role=3D"presentation"><tr><td style=3D"padding: =
+0;"><table style=3D"width:100%; border: 1px solid #dadce0; border-radius: 8=
+px; border-spacing: 0; table-layout:fixed; border-collapse: separate;" role=
+=3D"presentation"><tr><td style=3D"padding: 4.5%;" dir=3D"ltr"><div style=
+=3D"margin-bottom:32px;font-family: Google Sans, Roboto, Arial, Helvetica, =
+sans-serif; font-style: normal; font-size: 28px; line-height: 36px; color: =
+#3c4043;">MARLEE HOWARD=E5=85=B1=E7=94=A8=E4=BA=86 1 =E4=BB=BD=E8=A9=A6=E7=
+=AE=97=E8=A1=A8</div><table style=3D"border-collapse: collapse;font-family:=
+ Roboto, Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; co=
+lor:#202124; letter-spacing:0.1px; table-layout:fixed; width:100%; overflow=
+-wrap: break-word;" role=3D"presentation"><tr><td style=3D"padding: 0; vert=
+ical-align:top; width:50px;"><div><amp-img style=3D"border-radius:50%; disp=
+lay:block;" width=3D"50" height=3D"50" src=3D"https://lh3.googleusercontent=
+.com/a/ACg8ocJeG9bIA4nJ3CHXN6v5SodnuSTUi6tza-_cX4jj6oY10L-wxg=3Ds64" alt=3D=
+"=E9=A0=81=E9=A6=96=E5=80=8B=E4=BA=BA=E8=B3=87=E6=96=99=E7=9B=B8=E7=89=87">=
+</amp-img></div></td><td style=3D"padding: 0; vertical-align:top; padding-l=
+eft:12px;"><div style=3D"padding-top:12px;">MARLEE HOWARD (<a href=3D"mailt=
+o:77688269@clickformeet.my.id" style=3D"color:inherit;text-decoration:none"=
+>77688269@clickformeet.my.id</a>)=E9=82=80=E8=AB=8B=E6=82=A8<b>=E6=AA=A2=E8=
+=A6=96</b>=E4=BB=A5=E4=B8=8B=E9=80=99=E4=BB=BD=E8=A9=A6=E7=AE=97=E8=A1=A8=
+=EF=BC=9A</div></td></tr></table><table style=3D"border-spacing:0 4px; tabl=
+e-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"presentatio=
+n"><tr style=3D"height:28px;"></tr><tr><td style=3D"padding: 0;"><a href=3D=
+"https://docs.google.com/spreadsheets/d/1Lfb4jKMeL2gvbaqmRZcL8VznxeyoLe8Bvc=
+9s-4aRHdM/edit?usp=3Dsharing_eil_se_dm&amp;ts=3D692b2e54" target=3D"_blank"=
+ style=3D"color: #3c4043; display: inline-block; max-width: 100%; text-deco=
+ration: none; vertical-align: top;border: 1px solid #DADCE0; border-radius:=
+ 16px; white-space: nowrap;"><div style=3D"line-height: 18px; overflow: hid=
+den; text-overflow: ellipsis;padding: 6px 12px;"><span style=3D"display: in=
+line-block; vertical-align: top; min-width: 26px; width: 26px;"><amp-img sr=
+c=3D"https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadshe=
+et_x64.png" width=3D"18" height=3D"18" style=3D"vertical-align: top;" role=
+=3D"presentation"></amp-img></span><span style=3D"font: 500 14px/18px Googl=
+e Sans, Roboto, Arial, Helvetica, sans-serif; display: inline; letter-spaci=
+ng: 0.2px;">Ever</span></div></a></td></tr></table><table style=3D"border-c=
+ollapse: collapse;" role=3D"presentation"><tr style=3D"height: 32px"><td></=
+td></tr></table><div><a href=3D"https://docs.google.com/spreadsheets/d/1Lfb=
+4jKMeL2gvbaqmRZcL8VznxeyoLe8Bvc9s-4aRHdM/edit?usp=3Dsharing_eip_se_dm&amp;t=
+s=3D692b2e54" class=3D"material-button material-button-filled" target=3D"_b=
+lank" tabindex=3D"0" role=3D"link" style=3D"padding: 0 24px;font: 500 14px/=
+36px Google Sans, Roboto, Arial, Helvetica, sans-serif; border: none; borde=
+r-radius: 18px; box-sizing: border-box; display: inline-block; letter-spaci=
+ng: .25px; min-height: 36px; text-align: center; text-decoration: none;">=
+=E9=96=8B=E5=95=9F</a></div></td></tr></table><table style=3D"border-collap=
+se: collapse; width: 100%;" role=3D"presentation"><tr><td style=3D"padding:=
+ 24px 4.5%"><table style=3D"border-collapse: collapse; width: 100%;" dir=3D=
+"ltr"><tr><td style=3D"padding: 0;font-family: Roboto, Arial, Helvetica, sa=
+ns-serif; color: #5F6368; width: 100%; font-size: 12px; line-height: 16px; =
+min-height: 40px; letter-spacing: .3px;"><div>=E9=80=99=E5=80=8B=E9=A0=85=
+=E7=9B=AE=E5=BE=88=E5=8F=AF=E7=96=91=E5=97=8E=EF=BC=9F <a href=3D"https://d=
+rive.google.com/drive/blockuser?blockerEmail=3Dt.a.o.r.i.n.h.s.d@gmail.com&=
+amp;blockeeEmail=3D77688269@clickformeet.my.id&amp;usp=3Dsharing_eib_se_dm"=
+ target=3D"_blank" style=3D"color: #0B57D0; text-decoration: underline;;">=
+=E5=B0=81=E9=8E=96=E5=AF=84=E4=BB=B6=E8=80=85</a></div> <br/>Google LLC, 16=
+00 Amphitheatre Parkway, Mountain View, CA 94043, USA<br/> =E6=9C=89=E4=BA=
+=BA (<a href=3D"mailto:77688269@clickformeet.my.id" style=3D"color:inherit;=
+text-decoration:none">77688269@clickformeet.my.id</a>) =E9=80=8F=E9=81=8E G=
+oogle =E8=A9=A6=E7=AE=97=E8=A1=A8=E8=88=87=E4=BD=A0=E5=85=B1=E7=94=A8=E4=B8=
+=80=E4=BB=BD=E8=A9=A6=E7=AE=97=E8=A1=A8=EF=BC=8C=E5=9B=A0=E6=AD=A4=E7=B3=BB=
+=E7=B5=B1=E5=82=B3=E9=80=81=E9=80=99=E5=B0=81=E9=9B=BB=E5=AD=90=E9=83=B5=E4=
+=BB=B6=E9=80=9A=E7=9F=A5=E4=BD=A0=E3=80=82</td><td style=3D"padding: 0;padd=
+ing-left: 20px; min-width: 96px"><a href=3D"https://workspace.google.com/" =
+target=3D"_blank" style=3D"text-decoration: none"><amp-img src=3D"https://w=
+ww.gstatic.com/docs/documents/share/images/googleworkspace_logo_192x80.png"=
+ width=3D"96" height=3D"40" alt=3D"Google" style=3D"font-size:16px;font-wei=
+ght:500;color:#5F6368"></amp-img></a></td></tr></table></td></tr></table></=
+td></tr></table></td></tr></table></div></amp-list></body></html>
+--000000000000bef4d80644bf23e4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body><table style=3D"border-collapse: collapse; width: =
+100%; background-color: white; text-align: center;" role=3D"presentation"><=
+tr><td style=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: c=
+ollapse;font-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; ov=
+erflow-wrap: break-word; word-wrap: break-word; word-break: break-word;widt=
+h: 90%; margin: auto;max-width: 700px;min-width: 280px; text-align: left;" =
+role=3D"presentation"><tr><td style=3D"padding: 0;"><table style=3D"width:1=
+00%; border: 1px solid #dadce0; border-radius: 8px; border-spacing: 0; tabl=
+e-layout:fixed; border-collapse: separate;" role=3D"presentation"><tr><td s=
+tyle=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:32px;font-f=
+amily: Google Sans, Roboto, Arial, Helvetica, sans-serif; font-style: norma=
+l; font-size: 28px; line-height: 36px; color: #3c4043;">MARLEE HOWARD=E5=85=
+=B1=E7=94=A8=E4=BA=86 1 =E4=BB=BD=E8=A9=A6=E7=AE=97=E8=A1=A8</div><table st=
+yle=3D"border-collapse: collapse;font-family: Roboto, Arial, Helvetica, san=
+s-serif; font-size:16px; line-height:24px; color:#202124; letter-spacing:0.=
+1px; table-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"pr=
+esentation"><tr><td style=3D"padding: 0; vertical-align:top; width:50px;"><=
+!--[if mso]><v:oval xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"ur=
+n:schemas-microsoft-com:office:word" style=3D"height:50px;width:50px;" fill=
+=3D"t" stroke=3D"f"><v:fill type=3D"frame" src=3D"https://lh3.googleusercon=
+tent.com/a/ACg8ocJeG9bIA4nJ3CHXN6v5SodnuSTUi6tza-_cX4jj6oY10L-wxg=3Ds64" al=
+t=3D"=E9=A0=81=E9=A6=96=E5=80=8B=E4=BA=BA=E8=B3=87=E6=96=99=E7=9B=B8=E7=89=
+=87" style=3D"height:50px;width:50px;"/></v:oval><![endif]--><div style=3D"=
+mso-hide:all;"><img style=3D"border-radius:50%; display:block;" width=3D"50=
+" height=3D"50" src=3D"https://lh3.googleusercontent.com/a/ACg8ocJeG9bIA4nJ=
+3CHXN6v5SodnuSTUi6tza-_cX4jj6oY10L-wxg=3Ds64" alt=3D"=E9=A0=81=E9=A6=96=E5=
+=80=8B=E4=BA=BA=E8=B3=87=E6=96=99=E7=9B=B8=E7=89=87"></div></td><td style=
+=3D"padding: 0; vertical-align:top; padding-left:12px;"><div style=3D"paddi=
+ng-top:12px;">MARLEE HOWARD (<a href=3D"mailto:77688269@clickformeet.my.id"=
+ style=3D"color:inherit;text-decoration:none">77688269@clickformeet.my.id</=
+a>)=E9=82=80=E8=AB=8B=E6=82=A8<b>=E6=AA=A2=E8=A6=96</b>=E4=BB=A5=E4=B8=8B=
+=E9=80=99=E4=BB=BD=E8=A9=A6=E7=AE=97=E8=A1=A8=EF=BC=9A</div></td></tr></tab=
+le><table style=3D"border-spacing:0 4px; table-layout:fixed; width:100%; ov=
+erflow-wrap: break-word;" role=3D"presentation"><tr style=3D"height:28px;">=
+</tr><tr><td style=3D"padding: 0;"><a href=3D"https://docs.google.com/sprea=
+dsheets/d/1Lfb4jKMeL2gvbaqmRZcL8VznxeyoLe8Bvc9s-4aRHdM/edit?usp=3Dsharing_e=
+il&amp;ts=3D692b2e54" target=3D"_blank" style=3D"color: #3c4043; display: i=
+nline-block; max-width: 100%; text-decoration: none; vertical-align: top;bo=
+rder: 1px solid #DADCE0; border-radius: 16px; white-space: nowrap;"><div st=
+yle=3D"line-height: 18px; overflow: hidden; text-overflow: ellipsis;padding=
+: 6px 12px;"><span style=3D"display: inline-block; vertical-align: top; min=
+-width: 26px; width: 26px;"><img src=3D"https://ssl.gstatic.com/docs/doclis=
+t/images/mediatype/icon_1_spreadsheet_x64.png" width=3D"18" height=3D"18" s=
+tyle=3D"vertical-align: top;" role=3D"presentation"></span><span style=3D"f=
+ont: 500 14px/18px Google Sans, Roboto, Arial, Helvetica, sans-serif; displ=
+ay: inline; letter-spacing: 0.2px;">Ever</span></div></a></td></tr></table>=
+<table style=3D"border-collapse: collapse;" role=3D"presentation"><tr style=
+=3D"height: 32px"><td></td></tr></table><div><!--[if mso]><v:roundrect xmln=
+s:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:=
+office:word" href=3D"https://docs.google.com/spreadsheets/d/1Lfb4jKMeL2gvba=
+qmRZcL8VznxeyoLe8Bvc9s-4aRHdM/edit?usp=3Dsharing_eip&amp;ts=3D692b2e54" sty=
+le=3D"height:36px; width:100px; v-text-anchor:middle;" arcsize=3D"50%" stro=
+ke=3D"f" fillcolor=3D"#1a73e8"><w:anchorlock/><center style=3D"color:#fffff=
+f;font-family:Arial,Helvetica,sans-serif;font-weight:500;font-size:14px;">=
+=E9=96=8B=E5=95=9F </center></v:roundrect><![endif]--><a href=3D"https://do=
+cs.google.com/spreadsheets/d/1Lfb4jKMeL2gvbaqmRZcL8VznxeyoLe8Bvc9s-4aRHdM/e=
+dit?usp=3Dsharing_eip&amp;ts=3D692b2e54" class=3D"material-button material-=
+button-filled" target=3D"_blank" tabindex=3D"0" role=3D"link" style=3D"mso-=
+hide:all;padding: 0 24px;font: 500 14px/36px Google Sans, Roboto, Arial, He=
+lvetica, sans-serif; border: none; border-radius: 18px; box-sizing: border-=
+box; display: inline-block; letter-spacing: .25px; min-height: 36px; text-a=
+lign: center; text-decoration: none;background-color: #0B57D0; color: #fff;=
+ cursor: pointer;">=E9=96=8B=E5=95=9F</a></div></td></tr></table><table sty=
+le=3D"border-collapse: collapse; width: 100%;" role=3D"presentation"><tr><t=
+d style=3D"padding: 24px 4.5%"><table style=3D"border-collapse: collapse; w=
+idth: 100%;" dir=3D"ltr"><tr><td style=3D"padding: 0;font-family: Roboto, A=
+rial, Helvetica, sans-serif; color: #5F6368; width: 100%; font-size: 12px; =
+line-height: 16px; min-height: 40px; letter-spacing: .3px;"><div>=E9=80=99=
+=E5=80=8B=E9=A0=85=E7=9B=AE=E5=BE=88=E5=8F=AF=E7=96=91=E5=97=8E=EF=BC=9F <a=
+ href=3D"https://drive.google.com/drive/blockuser?blockerEmail=3Dt.a.o.r.i.=
+n.h.s.d@gmail.com&amp;blockeeEmail=3D77688269@clickformeet.my.id&amp;usp=3D=
+sharing_eib" target=3D"_blank" style=3D"color: #0B57D0; text-decoration: un=
+derline;;">=E5=B0=81=E9=8E=96=E5=AF=84=E4=BB=B6=E8=80=85</a></div> <br/>Goo=
+gle LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA<br/> =E6=
+=9C=89=E4=BA=BA (<a href=3D"mailto:77688269@clickformeet.my.id" style=3D"co=
+lor:inherit;text-decoration:none">77688269@clickformeet.my.id</a>) =E9=80=
+=8F=E9=81=8E Google =E8=A9=A6=E7=AE=97=E8=A1=A8=E8=88=87=E4=BD=A0=E5=85=B1=
+=E7=94=A8=E4=B8=80=E4=BB=BD=E8=A9=A6=E7=AE=97=E8=A1=A8=EF=BC=8C=E5=9B=A0=E6=
+=AD=A4=E7=B3=BB=E7=B5=B1=E5=82=B3=E9=80=81=E9=80=99=E5=B0=81=E9=9B=BB=E5=AD=
+=90=E9=83=B5=E4=BB=B6=E9=80=9A=E7=9F=A5=E4=BD=A0=E3=80=82</td><td style=3D"=
+padding: 0;padding-left: 20px; min-width: 96px"><a href=3D"https://workspac=
+e.google.com/" target=3D"_blank" style=3D"text-decoration: none"><img src=
+=3D"https://www.gstatic.com/docs/documents/share/images/googleworkspace_log=
+o_192x80.png" width=3D"96" height=3D"40" alt=3D"Google" style=3D"font-size:=
+16px;font-weight:500;color:#5F6368"></a></td></tr></table></td></tr></table=
+></td></tr></table></td></tr></table></body></html>
+--000000000000bef4d80644bf23e4--

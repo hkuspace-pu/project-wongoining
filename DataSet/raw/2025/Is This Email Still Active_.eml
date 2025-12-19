@@ -1,0 +1,85 @@
+Delivered-To: taorin.hsd@gmail.com
+Received: by 2002:a05:7300:dc09:b0:2a4:59d3:5413 with SMTP id ot9csp4134602dyc;
+        Mon, 8 Dec 2025 03:46:24 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCUv8fbvWGmJjcaW8jkBpGvwn0/V/2TZUz/PEPFVEh6oh6APIMGL0KSUgaAjVgh0OK+p0yGjx84WtsO8@gmail.com
+X-Google-Smtp-Source: AGHT+IFOcGQwPNhfVXDE+KqSkMCjMdBHCcP1T6TaM9SYSAH/rbMdddSVvwWfqZxGN2apqXxeWD2d
+X-Received: by 2002:a05:7022:50a:b0:11d:f89d:85a0 with SMTP id a92af1059eb24-11e032a9272mr5639736c88.27.1765194384420;
+        Mon, 08 Dec 2025 03:46:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765194384; cv=none;
+        d=google.com; s=arc-20240605;
+        b=UlzopkPoUcSOHIjy90GeHTkvQdX3Puhfn3w8fx3STIUz/Hbjg5Y20/KKUqz21XB01a
+         L/3Muv3exj6oc8LQ0vNP+hRowkFED0rjbYuCwKByT2NDSyi/pJd5OvGZ9NwXiO8k3LSm
+         P57ZrEZahcl20kJ4nhsEcDn3GiykLeBIgZqE9crgEeAJVnEPaVznv+3nT69li6mCIWxr
+         z0W4BHsaOCT7RTyKsvp4HaitQKgAxs3AyfqDaa/BM+DBjeejB3UcNXU6zd8d0sGiiMlg
+         iLR8tE+IH41OY++hNduQ2bP467zi3C6lDpvvi1+wcKFRhNqhz4cw3pm98v4JGmG++Ca9
+         FfMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:importance:message-id
+         :subject:reply-to:from:to:date:dkim-signature:dkim-signature;
+        bh=NcIFdwAqSWmiFMV55T0klRfgSPdtIp0gK/7IdI7upxM=;
+        fh=Rxk3m4l0PTJ445ZG50gA2FeSxVhBJOJwgldrJFo97hA=;
+        b=ZhCPpRHMppLLJivAhhkRcA03+RoEaI7mR8/Jv3OLT8kWSHaIxQSzKv8/DsAN82rQP0
+         qteQRXRQyfVryE5/5NKj/JtWsSHHb01v4/yKTjx5j1mijOU2yd6GIQDOMycBKjXJMZmc
+         m09I8tposM9ZF890IIk+FxTpdKET1h1Y+b380konQStOeV50uCH+VPzUJMhz5U1zuJo8
+         S0/MkiGqApdVRdcW2Br0XUNjZRJWQsI9HRh9Ua6E9AsWZVaaeZfLLv+5tzgwrpNeMzgR
+         5cUroLIuscAMYSqfs9OI26QsFc4kXvuATbQGg1CsAwdWQUahTdqZbzlml43htlSAJurm
+         KOQQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@pmsg.rj.gov.br header.s=mail header.b=ShsFBqPP;
+       dkim=pass header.i=@pmsg.rj.gov.br header.s=mail header.b=v2wDYYBo;
+       spf=pass (google.com: domain of emcarlosmaia@pmsg.rj.gov.br designates 177.154.93.222 as permitted sender) smtp.mailfrom=emcarlosmaia@pmsg.rj.gov.br;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=pmsg.rj.gov.br
+Return-Path: <emcarlosmaia@pmsg.rj.gov.br>
+Received: from webmail.pmsg.rj.gov.br (webmail.pmsg.rj.gov.br. [177.154.93.222])
+        by mx.google.com with ESMTPS id a92af1059eb24-11df7742f08si49805576c88.66.2025.12.08.03.46.15
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Mon, 08 Dec 2025 03:46:24 -0800 (PST)
+Received-SPF: pass (google.com: domain of emcarlosmaia@pmsg.rj.gov.br designates 177.154.93.222 as permitted sender) client-ip=177.154.93.222;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@pmsg.rj.gov.br header.s=mail header.b=ShsFBqPP;
+       dkim=pass header.i=@pmsg.rj.gov.br header.s=mail header.b=v2wDYYBo;
+       spf=pass (google.com: domain of emcarlosmaia@pmsg.rj.gov.br designates 177.154.93.222 as permitted sender) smtp.mailfrom=emcarlosmaia@pmsg.rj.gov.br;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=pmsg.rj.gov.br
+Received: by webmail.pmsg.rj.gov.br (Postfix, from userid 5001)
+	id DDB601C63E0E; Mon,  8 Dec 2025 07:44:36 -0300 (BRT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=pmsg.rj.gov.br;
+	s=mail; t=1765190676;
+	bh=NcIFdwAqSWmiFMV55T0klRfgSPdtIp0gK/7IdI7upxM=;
+	h=Date:To:From:Reply-to:Subject:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type;
+	b=ShsFBqPPMZ9b02zenMehf6Q0y5RlEMZ+adxsO6I1+ePyD7a0IkrlcGpSBybrwYtza
+	 xpo770SyiVEKDM25WImmrtL0IS0pv2+BT/CVlOWGACs5yKuUw1i+U7qfuthkJQc8lO
+	 aLRb0B6eeEvDPADWIyjVQGXGs7pvgt9JtL9L76PQ=
+Received: from webmail.pmsg.rj.gov.br (pmsg.rj.gov.br [127.0.0.1])
+	by webmail.pmsg.rj.gov.br (Postfix) with ESMTP id DB73E1C637B8;
+	Mon,  8 Dec 2025 07:44:26 -0300 (BRT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=pmsg.rj.gov.br;
+	s=mail; t=1765190667;
+	bh=NcIFdwAqSWmiFMV55T0klRfgSPdtIp0gK/7IdI7upxM=;
+	h=Date:To:From:Reply-to:Subject:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type;
+	b=v2wDYYBordhmv0qqtFsmyZqlH6XU/Bkx5uHhApXQpV1bXFuXqIaNzPAObQGMAlGM7
+	 n/ROnO49c4L8mAgwYtBO4l6/7j+7fvpD/Bh555gx3BzFWpIRe+bjjz7+olpjJGSiIZ
+	 BcVNjIJq/8tmHB9vRFdE3RW2T6+2RWCDL+t0anX4=
+Date: Mon, 8 Dec 2025 07:44:26 -0300
+To: destinatarios nao divulgados
+From: "E. M. Carlos Maia" <emcarlosmaia@pmsg.rj.gov.br>
+Reply-to: mrschngsoki@hotmail.com
+Subject: Is This Email Still Active?
+Message-ID: <aff4aef1b163de12feb247ceadb92d02@webmail.pmsg.rj.gov.br>
+X-Priority: 3
+Importance: 
+X-Mailer: ExpressoMail [version 1.2]
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="iso-8859-1"
+
+<body>
+<p class=3D"MsoNormal"><span style=3D"color:black;background:white"><font =
+dir=3D"auto" style=3D"vertical-align: inherit;"><font dir=3D"auto" =
+style=3D"vertical-align: inherit;">Mrs Chng has been trying to reach =
+you.</font></font></span><o:p></o:p></p><br>
+</body>
+
+
