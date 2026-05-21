@@ -3,6 +3,7 @@ import torch
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
 import numpy as np
 import re
+from huggingface_hub import login
 
 # Page config
 st.set_page_config(
@@ -36,10 +37,20 @@ thresholds = {
 # ---- Load model ----
 @st.cache_resource
 def load_model():
-    model_path = r'C:\Users\taori\Documents\GitHub\project-wongoining\models\roberta_phishing_best'
+    # Read HF token from Streamlit secrets 
+    hf_token = st.secrets["HF_TOKEN"]
+    login(token=hf_token)
+    
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    tokenizer = RobertaTokenizer.from_pretrained(model_path)
-    model = RobertaForSequenceClassification.from_pretrained(model_path)
+    
+    tokenizer = RobertaTokenizer.from_pretrained(
+        "amyning/roberta-phishing-trigger",
+        token=hf_token
+    )
+    model = RobertaForSequenceClassification.from_pretrained(
+        "amyning/roberta-phishing-trigger",
+        token=hf_token
+    )
     model.to(device)
     model.eval()
     return tokenizer, model, device
