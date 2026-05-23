@@ -1,5 +1,6 @@
 # Streamlit secrets
 App/.streamlit/secrets.toml
+.streamlit/secrets.toml
 
 # Model files (too large for GitHub, stored on HuggingFace)
 models/
