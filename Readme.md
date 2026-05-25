@@ -9,7 +9,7 @@ The purpose of the project is to support general email users, especially non-exp
 ## Project Artefacts
 
 - Deployed Streamlit application: https://phishing-trigger-analyser.streamlit.app/
-- Demonstration video: 
+- Demonstration video: https://youtu.be/EW3MCXhEWuY
 - Final report: included in the submitted ePortfolio package
 - Poster: included in the submitted ePortfolio package
 
